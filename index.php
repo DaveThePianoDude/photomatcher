@@ -15,7 +15,7 @@
 			border-color:red }
 	
     </style>
-	<script src="/assets/leaflet.js" type="text/javascript"></script>
+	<script src="/assets/Leaflet/dist/leaflet.js" type="text/javascript"></script>
 
   </head>
   

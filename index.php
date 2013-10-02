@@ -15,7 +15,8 @@
 			border-color:red }
 	
     </style>
-	<script src="/assets/Leaflet/dist/leaflet.js" type="text/javascript"></script>
+
+	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 
   </head>
   

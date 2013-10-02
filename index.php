@@ -24,6 +24,12 @@
 
 	<div id="map"></div>
 	
+	<?php
+	
+	phpinfo();
+	
+	?>
+	
   </body>
   	<script type="text/javascript">		
 		var map = L.map('map').setView([38.7, -77.2], 8);

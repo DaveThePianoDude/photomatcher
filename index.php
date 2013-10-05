@@ -67,9 +67,11 @@
 		pg_query($db, $query);
 		echo "inserted row";
 	
+		$result = pg_query($db, "SELECT * FROM Places");
+	
 		$i = 0;
 		
-		 echo '<html><body><table><tr>';
+		echo '<html><body><table><tr>';
 
 		 while ($i < pg_num_fields($result))
 

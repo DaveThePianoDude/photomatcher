@@ -118,7 +118,7 @@
 			maxZoom: 18
 		}).addTo(map);
 		
-		var marker = L.marker([37.5, -77.2]).addTo(map);
+		var marker = L.marker([38.50.16, -77.11.45.0801]).addTo(map);
 		
 		map.setView(london, 13).addLayer(osm);
 	</script>

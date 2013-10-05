@@ -31,43 +31,6 @@
 			return "dbname=d7qq84ps7u5thb host=ec2-184-73-175-240.compute-1.amazonaws.com port=5432 user=jnnvxxjaenvzor password=Xpq6UHZoub1e6LIUPdUZrX6bSz sslmode=require";
 		
 		}
-		
-		function print_table()
-		{
-			$i = 0;
-			 echo '<html><body><table><tr>';
-
-			 while ($i < pg_num_fields($result))
-
-			 { $fieldName = pg_field_name($result, $i);
-
-			 echo '<td>' . $fieldName . '</td>';
-
-			 $i = $i + 1;
-
-			 }
-
-			 echo '</tr>'; $i = 0;
-
-			 while ($row = pg_fetch_row($result))
-			 { 
-			 echo '<tr>';
-			 $count = count($row);
-			 $y = 0;
-			 while ($y < $count)
-			 {
-			 $c_row = current($row);
-			 echo '<td>' . $c_row . '</td>';
-			 next($row); $y = $y + 1; 
-			 } 
-			 echo '</tr>';
-			 $i = $i + 1; } 
-			 
-			 pg_free_result($result);
-			 
-			 echo '</table></body></html>';
-
-		}
 
 		# Establish db connection
 		$db = pg_connect(pg_connection_string());
@@ -81,7 +44,7 @@
 		{
 			echo "Database connection succeeded.";
 			
-			echo "Now 'n' Then v. 0.123";
+			echo "Now 'n' Then v. 0.124";
 			
 			$query = "CREATE TABLE IF NOT EXISTS Places (natId bigserial primary key NOT NULL, userName varchar(20) NOT NULL, locationId bigserial, photoNowId bigserial, photoThenId bigserial, lat varchar(50) NOT NULL, lon varchar(50) NOT NULL);";
 			
@@ -104,7 +67,40 @@
 		pg_query($db, $query);
 		echo "inserted row";
 	
-		print_table();
+		$i = 0;
+		
+		 echo '<html><body><table><tr>';
+
+		 while ($i < pg_num_fields($result))
+
+		 { $fieldName = pg_field_name($result, $i);
+
+		 echo '<td>' . $fieldName . '</td>';
+
+		 $i = $i + 1;
+
+		 }
+
+		 echo '</tr>'; $i = 0;
+
+		 while ($row = pg_fetch_row($result))
+		 { 
+		 echo '<tr>';
+		 $count = count($row);
+		 $y = 0;
+		 while ($y < $count)
+		 {
+		 $c_row = current($row);
+		 echo '<td>' . $c_row . '</td>';
+		 next($row); $y = $y + 1; 
+		 } 
+		 echo '</tr>';
+		 $i = $i + 1; } 
+		 
+		 pg_free_result($result);
+		 
+		 echo '</table></body></html>';
+
 	?>
 	
   </body>

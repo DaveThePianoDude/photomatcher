@@ -49,8 +49,6 @@
 			$query = "CREATE TABLE IF NOT EXISTS Places (natId bigserial primary key NOT NULL, userName varchar(20) NOT NULL, locationId bigserial, photoNowId bigserial, photoThenId bigserial, lat varchar(50) NOT NULL, lon varchar(50) NOT NULL);";
 			
 			pg_query($db, $query);
-			
-			echo "got here";	
 		}
 		
 		$natId = $_GET['natId'];
@@ -108,7 +106,7 @@
 		 pg_free_result($result);
 		 
 		 echo '</table></body></html>';
-
+		 
 	?>
 	
   </body>
@@ -119,6 +117,8 @@
 			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>[…]',
 			maxZoom: 18
 		}).addTo(map);
+		
+		var marker = L.marker([37.5, -77.2]).addTo(map);
 		
 		map.setView(london, 13).addLayer(osm);
 	</script>

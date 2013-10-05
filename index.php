@@ -46,14 +46,14 @@
 			
 			echo "Now 'n' Then v. 0.123";
 			
-			$query = "CREATE TABLE IF NOT EXISTS Places (location_id bigserial primary key, name varchar(20) NOT NULL, lat varchar(50) NOT NULL, lon varchar(50) NOT NULL);";
+			$query = "CREATE TABLE IF NOT EXISTS Places (natId bigserial primary key NOT NULL, userName varchar(20) NOT NULL, locationId bigserial, photoNowId bigserial, photoThenId bigserial, lat varchar(50) NOT NULL, lon varchar(50) NOT NULL);";
 			
 			pg_query($db, $query);
 			
 			echo "got here";	
 		}
 	
-		$query = "INSERT INTO Places VALUES (2, 'SOMEWHERE', '300231.39293', '3919293.221');";
+		$query = "INSERT INTO Places VALUES ('daholland', 1, 1, 1, '300231.39293', '3919293.221');";
 		pg_query($db, $query);
 		echo "inserted row";
 	

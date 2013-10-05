@@ -61,7 +61,7 @@
 		$lat = $_GET['lat'];
 		$lon = $_GET['lon'];
 	
-		if (&natId != NULL)
+		if ($natId != NULL)
 		{
 	
 		$query = "INSERT INTO Places VALUES ($natId, '$userName', $locationId, $photoNowId, $photoThenId, '$lat', '$lon');";

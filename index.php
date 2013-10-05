@@ -64,8 +64,10 @@
 		$query = "INSERT INTO Places VALUES ($natId, '$userName', $locationId, $photoNowId, $photoThenId, '$lat', '$lon');";
 		
 		echo $query;
+		
 		//$query = "INSERT INTO Places VALUES (1, 'daholland', 1, 1, 1, '300231.39293', '3919293.221');";
-		pg_query($db, $query);
+		pg_query($db, $query);// comment
+		
 		echo "inserted row";
 	
 		$result = pg_query($db, "SELECT * FROM Places");

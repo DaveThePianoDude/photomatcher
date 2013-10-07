@@ -107,7 +107,7 @@
 		 	 
 			if (is_numeric($lat) && is_numeric($lon))
 			
-				echo 'var marker = L.marker([$lat, $lon]).addTo(map);';
+				echo "var marker = L.marker([$lat, $lon]).addTo(map);";
 		 
 		 } 
 		

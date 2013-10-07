@@ -119,7 +119,7 @@
 		
 		echo "}).addTo(map);";
 		
-		echo "var marker = L.marker([38.50, -77.11]).addTo(map);";
+		echo "var marker = L.marker([38.871983, -77.229460]).addTo(map);";
 		
 		echo "map.setView(london, 13).addLayer(osm);";
 		

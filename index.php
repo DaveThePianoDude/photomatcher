@@ -72,39 +72,6 @@
 		}
 	
 		$result = pg_query($db, "SELECT * FROM Places");
-	
-		$i = 0;
-		
-		echo '<html><body><table><tr>';
-
-		 while ($i < pg_num_fields($result))
-
-		 { $fieldName = pg_field_name($result, $i);
-
-		 echo '<td>' . $fieldName . '</td>';
-
-		 $i = $i + 1;
-
-		 }
-
-		 echo '</tr>'; $i = 0;
-
-		 while ($row = pg_fetch_row($result))
-		 { 
-		 echo '<tr>';
-		 $count = count($row);
-		 $y = 0;
-		 while ($y < $count)
-		 {
-		 $c_row = current($row);
-		 echo '<td>' . $c_row . '</td>';
-		 next($row); $y = $y + 1; 
-		 } 
-		 echo '</tr>';
-		 $i = $i + 1; } 
-		 
-		 
-		 echo '</table></body></html>';
 		 
 	echo "<script type=\x22text/javascript\x22>";
 	
@@ -120,7 +87,6 @@
 		
 		while ($row = pg_fetch_row($result))
 		{
-			 $use = false;
 			 $count = count($row);
 			 $y = 0;
 			 
@@ -128,10 +94,6 @@
 			 {
 				 $c_row = current($row);
 				 
-				 if ($y == 0 && $c_row > 71)
-				 
-					$use = true;
-				
 				if ($y == 5)
 			
 					$lat = $c_row;
@@ -143,7 +105,9 @@
 				next($row); $y = $y + 1; 
 			}
 		 	 
-			if ($use) echo 'var marker = L.marker([$lat, $lon]).addTo(map);';
+			if (is_numeric($lat) && is_numeric($lon))
+			
+				echo 'var marker = L.marker([$lat, $lon]).addTo(map);';
 		 
 		 } 
 		

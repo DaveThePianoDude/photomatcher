@@ -103,7 +103,6 @@
 		 echo '</tr>';
 		 $i = $i + 1; } 
 		 
-		 pg_free_result($result);
 		 
 		 echo '</table></body></html>';
 		 
@@ -119,11 +118,41 @@
 		
 		echo "}).addTo(map);";
 		
-		echo "var marker = L.marker([38.870187, -77.173602]).addTo(map);";
+		while ($row = pg_fetch_row($result))
+		{
+			 $use = false;
+			 $count = count($row);
+			 $y = 0;
+			 
+			 while ($y < $count)
+			 {
+				 $c_row = current($row);
+				 
+				 if ($y == 0 && $c_row > 71)
+				 
+					$use = true;
+				
+				if ($y == 5)
+			
+					$lat = $c_row;
+				
+				if ($y == 6)
+			
+					$lon = $c_row;
+			 
+				next($row); $y = $y + 1; 
+			}
+		 	 
+			if ($use) echo 'var marker = L.marker([$lat, $lon]).addTo(map);';
+		 
+		 } 
 		
 		echo "map.setView(london, 13).addLayer(osm);";
 		
 	echo "</script>";
+	
+	
+	pg_free_result($result);
 	
 	?>
 </html>

@@ -107,21 +107,25 @@
 		 
 		 echo '</table></body></html>';
 		 
-	?>
+	echo "<script type=\x22text/javascript\x22>";
 	
-  </body>
-  	<script type="text/javascript">		
-		var map = L.map('map').setView([38.7, -77.2], 8);
+		echo "var map = L.map(\x22map\x22).setView([38.7, -77.2], 8)";
 		
-		L.tileLayer('http://{s}.tile.cloudmade.com/842d83399a1d4a588c20671f08990c5c/997/256/{z}/{x}/{y}.png', {
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>[…]',
-			maxZoom: 18
-		}).addTo(map);
+		echo "L.tileLayer(\x22http://{s}.tile.cloudmade.com/842d83399a1d4a588c20671f08990c5c/997/256/{z}/{x}/{y}.png\x22, {";
 		
-		var marker = L.marker([38.50, -77.11]).addTo(map);
+		echo "attribution: 'Map data &copy; <a href=\x22http://openstreetmap.org\x22>OpenStreetMap</a> contributors, <a href=\x22http://creativecommons.org/licenses/by-sa/2.0/\x22>CC-BY-SA</a>, Imagery © <a href=\x22http://cloudmade.com\x22>CloudMade</a>[…]',";
 		
-		map.setView(london, 13).addLayer(osm);
-	</script>
+		echo "maxZoom: 18";
+		
+		echo "}).addTo(map);";
+		
+		echo "var marker = L.marker([38.50, -77.11]).addTo(map);";
+		
+		echo "map.setView(london, 13).addLayer(osm);";
+		
+	echo "</script>";
+	
+	?>
 </html>
 
 

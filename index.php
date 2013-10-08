@@ -106,8 +106,12 @@
 			}
 		 	 
 			if (is_numeric($lat) && is_numeric($lon))
+			{
 			
 				echo "var marker = L.marker([$lat, $lon]).addTo(map);";
+				echo "marker.bindPopup(\x22"<img src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='360px' width='240px'></img>\x22).openPopup();";
+			}
+
 		 
 		 } 
 		

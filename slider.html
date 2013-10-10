@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Slider</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/themes/base/jquery-ui.css" type="text/css"/>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        //Step 1: set up the slider with some options. The valid values for opacity are 0 to 1
+        //Step 2: Bind an event so when you slide the slider and stop, the following function gets called
+        $('#slider').slider({ 
+        min: 0, 
+        max: 1, 
+        step: 0.01, 
+        value: 1,
+        orientation: "vertical",
+             slide: function(e,ui){
+                     $('#box').css('opacity', ui.value)
+
+             }                
+        })
+    });
+</script>
+<style type="text/css">
+    #box { width: 200px; height: 200px; background-color: #ff0000; }
+    #slider { width: 15px; }
+</style>
+</head>
+<body>
+    <div id="slider" data-wjs-element="box"></div>
+    <div id="box">
+        <p>Fade with the above slider...</p>
+    </div>
+</body>
+</html>

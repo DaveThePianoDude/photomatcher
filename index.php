@@ -79,7 +79,9 @@
 
 						// update the text box with the actual value
 						
-						$('#img').css('opacity', ui.value * .005)
+						var Img = Dom.get("img");
+						
+						Img.css("opacity", 0.5)
 
 						//fld.value = actualValue;
 

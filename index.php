@@ -53,12 +53,6 @@
 				// Custom scale factor for converting the pixel offset into a real value
 				var scaleFactor = 1.5;
 
-				// The amount the slider moves when the value is changed with the arrow
-				// keys
-				//var keyIncrement = 20;
-
-				//var tickSize = 20;
-
 				Event.onDOMReady(function() {
 
 					slider = YAHOO.widget.Slider.getHorizSlider(bg, 
@@ -227,8 +221,7 @@
 			{
 			
 				echo "var marker = L.marker([$lat, $lon]).addTo(map);";
-				echo "marker.bindPopup(\x22<img src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='360px' width='240px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'>
-		<div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+				echo "marker.bindPopup(\x22<img src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='360px' width='240px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'></div>\x22).openPopup();";
 	
 			}	 
 		 } 

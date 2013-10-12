@@ -125,13 +125,17 @@
 	
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
 
-	echo "<br>GOT HERE UID = ". $uid . "<br>";
-
-	$row = pg_fetch_row($result);
+	echo("<table border=2><tr><td>UID</td><td>DATA</td></tr>");
 	
-	next($row);
+	while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 	
-	echo current($row);
+    echo("<tr>");
+		foreach ($line as $col_value => $row_value) {
+			echo("<td>$row_value</td>");
+		}
+		echo("</tr>\n");
+	}
+	echo("</table>");
 	
 	pg_free_result($result);
 	

@@ -6,7 +6,7 @@
 		
 		//echo $info["mime"]; // will return the mime type
 		
-		echo $info["size"];
+		echo base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 	}
 	else
 	

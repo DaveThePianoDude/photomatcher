@@ -121,7 +121,7 @@
 	
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
 
-	$image = pg_unescape_bytea(pg_result($result, 6, 1));
+	$image = pg_unescape_bytea(pg_result($result, 7, 1));
 	
 	echo "$image";
 	

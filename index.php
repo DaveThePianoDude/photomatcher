@@ -81,7 +81,7 @@
 						
 						var Img = Dom.get("thenImage1");
 						
-						Img.css("opacity", ui.value * .005)
+						Img.css("opacity", actualValue * .005)
 
 						//fld.value = actualValue;
 
@@ -139,7 +139,7 @@
   <body>
 
 	<div id="map"></div>
-	
+	<p>Pixel value: <span id="slider-value">0</span></p>
 	<?php
 	
 		function pg_connection_string() {

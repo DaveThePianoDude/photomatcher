@@ -121,11 +121,13 @@
 	
 	echo 'got here';
 	
-	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
+	$result = pg_query($db, "SELECT data FROM NOW_PHOTOS");
 
 	while ($row = pg_fetch_row($result))
 	{
-		echo('found a row');
+		$raw = pg_fetch_result($row, 'data');
+		header('Content-type: image/jpeg');
+		echo pg_unescape_bytea($raw);
 	}
 
 	pg_free_result($result);

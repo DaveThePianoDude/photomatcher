@@ -22,11 +22,11 @@
 		pg_query($db, $query);
 	}
 
-	//$uploaddir = 'uploads/';
+	$uploaddir = 'uploads/';
 	$file = basename($_FILES['uploadedfile']['name']);
-	//$uploadfile = $uploaddir . $file;
+	$uploadfile = $uploaddir . $file;
 
-	$uploadfile = $file;
+	//$uploadfile = $file;
 	
 	echo "file=".$file; //is empty, but shouldn't
 
@@ -37,14 +37,13 @@
 		echo "error";
 	}
 
-	
 	$img = fopen($uploadfile, 'r') or die("cannot read image\n");
 	$data = fread($img, filesize($uploadfile));
 
 	$es_data = pg_escape_bytea($data);
 	fclose($img);
 
-	$query = "INSERT INTO images(id, data) Values(1, '$es_data')";
+	$query = "INSERT INTO NOW_PHOTOS(id, data) Values(1, '$es_data')";
 	pg_query($cdb, $query); 
 	
 	pg_close($db); 

@@ -9,7 +9,13 @@
 	$db = pg_connect(pg_connection_string());
 	
 	# Get the image file data
-	$es_data = pg_escape_bytea($_FILES['uploadedfile']);
+	$uploadedfile = $_FILES['uploadedfile']['tmp_name']);
+	
+	if (isset($uploadedfile))
+	{
+		$finfo = finfo_open(FILEINFO_MIME_TYPE);
+		$mime=finfo_file($finfo, $_FILES['uploadedfile']['tmp_name']);
+	}
 	
 	$query = "SELECT * FROM NOW_PHOTOS";
 	
@@ -17,10 +23,13 @@
 	
 	$uid = pg_num_rows($result) + 1;
 	
-	# From the insertion query
-	$query = "INSERT INTO NOW_PHOTOS(id, data) Values(" . $uid . ", '$es_data')";
-	
-	pg_query($db, $query); 
+	if (!empty($mime))
+	{
+		# From the insertion query
+		$query = "INSERT INTO NOW_PHOTOS(id, data) Values(" . $uid . ", '$mime')";
+		
+		pg_query($db, $query);
+	}
 	
 	$query = "SELECT * FROM NOW_PHOTOS";
 	

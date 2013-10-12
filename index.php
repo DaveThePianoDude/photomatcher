@@ -139,7 +139,7 @@
 				echo("<td>$clean</td>");
 			}
 			
-		echo("</tr>\n");	
+		echo("</tr>");	
 	}
 	echo("</table>");
 	

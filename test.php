@@ -4,7 +4,7 @@
 	{
 		$info = getimagesize($_FILES['uploadedfile']['tmp_name']);
 		
-		echo $info;
+		echo $info["mime"];
 	}
 	else
 	

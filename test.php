@@ -9,15 +9,15 @@
 	//$db = pg_connect(pg_connection_string());
 	
 	// # Get the image file data
-	$uploadedfile = pg_escape_bytea($_FILES['uploadedfile']['name']));
+	//$uploadedfile = pg_escape_bytea($_FILES['uploadedfile']['name']));
 	
 	// open it
-	$fp = fopen($uploadedfile,'r');
+	//$fp = fopen($uploadedfile,'r');
 	
 	// read it
-	$data = fread($fp, filesize($uploadedfile));
+	//$data = fread($fp, filesize($uploadedfile));
 	
-	fclose($fp);
+	//fclose($fp);
 	
 	//pg_close($db);
 	

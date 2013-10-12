@@ -15,7 +15,7 @@
 		
 	} else
 	{
-		echo "Database connection succeeded.";
+		echo "Database connection succeeded...";
 		
 		$query = "CREATE TABLE IF NOT EXISTS NOW_PHOTOS(id INT PRIMARY KEY, data BYTEA);";
 		
@@ -26,26 +26,25 @@
 	$file = basename($_FILES['uploadedfile']['name']);
 	$uploadfile = $uploaddir . $file;
 
-	//$uploadfile = $file;
-	
-	echo "file=".$file; //is empty, but shouldn't
+	// echo "file=".$file; //is empty, but shouldn't
 
-	if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $uploadfile)) {
-		echo $file;
-	}
-	else {
-		echo "error";
-	}
+	// if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $uploadfile)) {
+		// echo $file;
+	// }
+	// else {
+		// echo "error";
+	// }
 
-	$img = fopen($uploadfile, 'r') or die("cannot read image\n");
-	$data = fread($img, filesize($uploadfile));
+	// $img = fopen($uploadfile, 'r') or die("cannot read image\n");
+	// $data = fread($img, filesize($uploadfile));
 
-	$es_data = pg_escape_bytea($data);
-	fclose($img);
+	$es_data = pg_escape_bytea($_FILES['uploadedfile']['name']);
+	//fclose($img);
 
 	$query = "INSERT INTO NOW_PHOTOS(id, data) Values(1, '$es_data')";
 	pg_query($cdb, $query); 
 	
 	pg_close($db); 
 
+	echo('REACHED END OF PHP SCRIPT');
 ?>

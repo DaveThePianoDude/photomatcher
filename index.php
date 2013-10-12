@@ -119,7 +119,13 @@
 		
 	echo "</script>";
 	
-	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
+	$query = "SELECT * FROM NOW_PHOTOS";
+	
+	$result = pg_query($db, $query); 
+	
+	$uid = pg_num_rows($result);
+	
+	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '" . $uid ."'");
 
 	echo "<br>GOT HERE";
 	
@@ -128,12 +134,6 @@
 	next($row);
 	
 	echo current($row);
-	
-	//header('Content-Type: image/x-png'); //or whatever
-
-	//$ctobj = $image;
-	
-   // echo "<IMG SRC=show.php> </br>";
 
 	pg_free_result($result);
 	

@@ -9,7 +9,7 @@
 	$db = pg_connect(pg_connection_string());
 	
 	# Get the image file data
-	$es_data = pg_escape_bytea($_FILES['uploadedfile']['name']);
+	$es_data = pg_escape_bytea($_FILES['uploadedfile']['tmp_name']);
 	
 	$query = "SELECT * FROM NOW_PHOTOS";
 	

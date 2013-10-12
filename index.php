@@ -125,7 +125,7 @@
 
 	while ($row = pg_fetch_row($result))
 	{
-		$image = pg_unescape_bytea(pg_result($res, 0, 0));
+		$image = pg_unescape_bytea(pg_result($row, 0, 0));
 		header('Content-Type: image/x-png'); //or whatever
 		readfile($image);
 	}

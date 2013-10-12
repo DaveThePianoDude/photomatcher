@@ -22,5 +22,5 @@
 	//pg_close($db);
 	
 	// return it
-	echo $data;
+	echo 'HELLO';
 ?>

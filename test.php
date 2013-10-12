@@ -8,30 +8,28 @@
 	# Establish db connection
 	$db = pg_connect(pg_connection_string());
 	
-	if ($_FILES)
-	
 	// # Get the image file data
 	$uploadedfile = pg_escape_bytea($_FILES['uploadedfile']['tmp_name']));
 	
-	//if (!empty($uploadedfile))
-	//{
-		//$finfo = finfo_open(fileinfo_mime_type);
-		//$mime=finfo_file($finfo, $_files['uploadedfile']['tmp_name']);
-	//}
+	if (!empty($uploadedfile))
+	{
+		$finfo = finfo_open(fileinfo_mime_type);
+		$mime=finfo_file($finfo, $_files['uploadedfile']['tmp_name']);
+	}
 	
-	// $query = "SELECT * FROM NOW_PHOTOS";
+	 $query = "SELECT * FROM NOW_PHOTOS";
 	
-	// $result = pg_query($db, $query); 
+	 $result = pg_query($db, $query); 
 	
-	// $uid = pg_num_rows($result) + 1;
+	 $uid = pg_num_rows($result) + 1;
 	
-	// if (!empty($mime))
-	// {
-		// # From the insertion query
-		// $query = "INSERT INTO NOW_PHOTOS(id, data) Values(" . $uid . ", '$mime')";
+	 if (!empty($mime))
+	 {
+		 # From the insertion query
+		 $query = "INSERT INTO NOW_PHOTOS(id, data) Values(" . $uid . ", '$mime')";
 		
-		// pg_query($db, $query);
-	// } else
+	 pg_query($db, $query);
+	 } else
 	
 	// echo "No mime type found";
 	

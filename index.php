@@ -91,7 +91,7 @@
 			 
 			 while ($y < $count)
 			 {
-				 $c_row = current($row);
+				$c_row = current($row);
 				 
 				if ($y == 5)
 			
@@ -125,8 +125,14 @@
 	
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
 
-	echo "<br>GOT HERE UID = ". $uid;
+	echo "<br>GOT HERE UID = ". $uid . "<br>";
 
+	$row = pg_fetch_row($result);
+	
+	next($row);
+	
+	echo current($row);
+	
 	pg_free_result($result);
 	
 	pg_close($db);

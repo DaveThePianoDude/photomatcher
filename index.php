@@ -48,7 +48,7 @@
 				var topConstraint = 0;
 
 				// The slider can move 200 pixels down
-				var bottomConstraint = 100;
+				var bottomConstraint = 200;
 
 				// Custom scale factor for converting the pixel offset into a real value
 				var scaleFactor = 1.0;
@@ -79,7 +79,7 @@
 
 						// update the text box with the actual value
 						
-						$('#img').css('opacity', ui.value)
+						$('#img').css('opacity', ui.value * .005)
 
 						//fld.value = actualValue;
 

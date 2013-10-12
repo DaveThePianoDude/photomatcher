@@ -29,7 +29,9 @@
 		$query = "INSERT INTO NOW_PHOTOS(id, data) Values(" . $uid . ", '$mime')";
 		
 		pg_query($db, $query);
-	}
+	} else
+	
+	echo ('No mime type found');
 	
 	$query = "SELECT * FROM NOW_PHOTOS";
 	

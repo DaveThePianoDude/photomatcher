@@ -123,8 +123,11 @@
 
 	echo "<br>GOT HERE";
 	
-	echo pg_result($result, 7, 0);
+	$row = pg_fetch_row($result);
 	
+	next($row);
+	
+	echo current($row);
 	
 	//header('Content-Type: image/x-png'); //or whatever
 

@@ -11,7 +11,7 @@
 	// # Get the image file data
 	$uploadedfile = $_files['uploadedfile']['tmp_name']);
 	
-	if (isset($uploadedfile))
+	if (!empty($uploadedfile))
 	{
 		$finfo = finfo_open(fileinfo_mime_type);
 		$mime=finfo_file($finfo, $_files['uploadedfile']['tmp_name']);

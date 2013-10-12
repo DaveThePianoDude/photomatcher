@@ -2,7 +2,9 @@
 
 	if (isset($_FILES['uploadedfile']))
 	{
-		echo $_FILES['uploadedfile']['tmp_name'];
+		$info = getimagesize($_FILES['uploadedfile']['tmp_name']);
+		
+		echo $info;
 	}
 	else
 	

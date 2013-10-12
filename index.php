@@ -133,10 +133,8 @@
 		echo("<tr>");
 		
 			foreach ($line as $col_value => $row_value) {
-			
-				$clean = ltrim($row_value);
-			
-				echo("<td>$clean</td>");
+				
+				echo("<td>$row_value</td>");
 			}
 			
 		echo("</tr>");	

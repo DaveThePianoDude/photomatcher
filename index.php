@@ -125,13 +125,13 @@
 	
 	$uid = pg_num_rows($result);
 	
-	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = 11");
+	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '11'");
 
 	echo "<br>GOT HERE";
 	
 	$row = pg_fetch_row($result);
 	
-	next($row);
+	//next($row);
 	
 	echo current($row);
 

@@ -12,7 +12,7 @@
 	$es_data = pg_escape_bytea($_FILES['uploadedfile']['name']);
 	
 	# From the insertion query
-	$query = "INSERT INTO NOW_PHOTOS(id, data) Values(1, '$es_data')";
+	$query = "INSERT INTO NOW_PHOTOS(id, data) Values(2, '$es_data')";
 	
 	pg_query($db, $query); 
 	

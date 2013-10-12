@@ -122,15 +122,15 @@
 
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
 
-	$image = pg_unescape_bytea(pg_result($result, 2, 1));
+	$image = pg_unescape_bytea(pg_result($result, 3, 1));
 	
 	echo "$image";
 	
-	//header('Content-Type: image/x-png'); //or whatever
+	header('Content-Type: image/x-png'); //or whatever
 
-	//$ctobj = $image;
+	$ctobj = $image;
 	
-    //echo "<IMG SRC=show.php> </br>";
+    echo "<IMG SRC=show.php> </br>";
 
 	pg_free_result($result);
 	

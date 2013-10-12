@@ -132,6 +132,9 @@
 	
     echo("<tr>");
 		foreach ($line as $col_value => $row_value) {
+		
+			$row_value = ltrim($row_value);
+		
 			echo("<td>$row_value</td>");
 		}
 		echo("</tr>\n");

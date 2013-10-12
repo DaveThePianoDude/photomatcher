@@ -92,7 +92,7 @@
 						// technology to communicate the state change
 						
 						
-						//Dom.get(bg).title = "slider value = " + actualValue;
+						Dom.get(bg).title = "slider value = " + actualValue;
 
 					});
 
@@ -227,8 +227,8 @@
 			{
 			
 				echo "var marker = L.marker([$lat, $lon]).addTo(map);";
-				echo "marker.bindPopup(\x22<img src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='360px' width='240px'></img><div id=\x22slider-bg\x22 class=\x22yui-h-slider\x22 tabindex=\x22-1\x22 title=\x22Slider\x22>
-		<div id=\x22slider-thumb\x22 class=\x22yui-slider-thumb\x22><img src=\x22http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif\x22></div></div>\x22).openPopup();";
+				echo "marker.bindPopup(\x22<img src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='360px' width='240px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'>
+		<div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 	
 			}	 
 		 } 

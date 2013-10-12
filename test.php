@@ -8,6 +8,8 @@
 	# Establish db connection
 	$db = pg_connect(pg_connection_string());
 	
+	if ($_FILES)
+	
 	// # Get the image file data
 	$uploadedfile = pg_escape_bytea($_FILES['uploadedfile']['tmp_name']));
 	

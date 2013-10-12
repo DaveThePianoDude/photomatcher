@@ -135,7 +135,7 @@
 		
 			$clean = trim($row_value, "\x00..\x1F");
 		
-			echo("<td>$clean</td>");
+			echo("<td>TEST</td>");
 		}
 		echo("</tr>\n");
 	}

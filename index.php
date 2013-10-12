@@ -126,9 +126,9 @@
 	
 	echo "$image";
 	
-	header('Content-Type: image/x-png'); //or whatever
+	//header('Content-Type: image/x-png'); //or whatever
 
-	$ctobj = $image;
+	//$ctobj = $image;
 	
    // echo "<IMG SRC=show.php> </br>";
 

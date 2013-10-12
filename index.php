@@ -131,7 +131,7 @@
 	
 	$row = pg_fetch_row($result);
 	
-	//next($row);
+	next($row);
 	
 	echo current($row);
 

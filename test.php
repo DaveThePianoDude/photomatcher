@@ -9,7 +9,7 @@
 	$db = pg_connect(pg_connection_string());
 	
 	// # Get the image file data
-	$uploadedfile = $_files['uploadedfile']['tmp_name']);
+	$uploadedfile = $_FILES['uploadedfile']['tmp_name']);
 	
 	//if (!empty($uploadedfile))
 	//{

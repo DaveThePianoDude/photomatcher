@@ -44,7 +44,7 @@
 		{
 			echo "Database connection succeeded.";
 			
-			echo "Now 'n' Then v. 0.126";
+			echo "Now 'n' Then v. 0.127";
 			
 			$query = "CREATE TABLE IF NOT EXISTS Places (natId bigserial primary key NOT NULL, userName varchar(20) NOT NULL, locationId bigserial, photoNowId bigserial, photoThenId bigserial, lat varchar(50) NOT NULL, lon varchar(50) NOT NULL);";
 			
@@ -121,9 +121,10 @@
 	
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
 
-	$image = pg_unescape_bytea(pg_result($result, 7, 0));
+	echo "<br>GOT HERE";
 	
-	echo "<br>$image";
+	echo pg_result($result, 7, 0);
+	
 	
 	//header('Content-Type: image/x-png'); //or whatever
 

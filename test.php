@@ -31,7 +31,7 @@
 		pg_query($db, $query);
 	} else
 	
-	echo ('No mime type found');
+	echo "No mime type found";
 	
 	$query = "SELECT * FROM NOW_PHOTOS";
 	

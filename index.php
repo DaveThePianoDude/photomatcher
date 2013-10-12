@@ -129,15 +129,17 @@
 	echo("<table border=2><tr><td>UID</td><td>DATA</td></tr>");
 	
 	while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-	
-    echo("<tr>");
-		foreach ($line as $col_value => $row_value) {
+	{
+		echo("<tr>");
 		
-			$clean = ltrim($row_value,'\r\n');
-		
-			echo("<td>$clean</td>");
-		}
-		echo("</tr>\n");
+			foreach ($line as $col_value => $row_value) {
+			
+				$clean = ltrim($row_value);
+			
+				echo("<td>$clean</td>");
+			}
+			
+		echo("</tr>\n");	
 	}
 	echo("</table>");
 	

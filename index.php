@@ -130,14 +130,16 @@
 	
 	while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 	
-    echo("<tr>");
+		echo("<tr>");
+		
 		foreach ($line as $col_value => $row_value) {
 		
 			$row_value = trim($row_value);
 		
 			echo("<td>$row_value</td>");
 		}
-		echo("</tr>\n");
+		
+		echo("</tr>");
 	}
 	echo("</table>");
 	

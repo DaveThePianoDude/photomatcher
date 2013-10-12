@@ -123,7 +123,8 @@
 	
 	$uid = pg_num_rows($result);
 	
-	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
+//	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
+	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
 
 	echo("<table border=2><tr><td>UID</td><td>DATA</td></tr>");
 	

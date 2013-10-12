@@ -133,9 +133,9 @@
     echo("<tr>");
 		foreach ($line as $col_value => $row_value) {
 		
-			$clean = trim($row_value, "\x00..\x1F");
+			$clean = ltrim($row_value,' ');
 		
-			echo("<td>TEST</td>");
+			echo("<td>$clean</td>");
 		}
 		echo("</tr>\n");
 	}

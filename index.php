@@ -125,9 +125,9 @@
 
 	while ($row = pg_fetch_row($result))
 	{
-		$raw = pg_fetch_result($row, 'data');
-		header('Content-type: image/jpeg');
-		echo pg_unescape_bytea($raw);
+		$image = pg_unescape_bytea(pg_result($res, 0, 0));
+		header('Content-Type: image/x-png'); //or whatever
+		readfile($image);
 	}
 
 	pg_free_result($result);

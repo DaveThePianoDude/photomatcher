@@ -119,10 +119,9 @@
 		
 	echo "</script>";
 	
-
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
 
-	$image = pg_unescape_bytea(pg_result($result, 4, 1));
+	$image = pg_unescape_bytea(pg_result($result, 5, 1));
 	
 	echo "$image";
 	

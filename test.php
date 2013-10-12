@@ -9,10 +9,10 @@
 	$db = pg_connect(pg_connection_string());
 	
 	# Get the image file data
-	$es_data = pg_escape_bytea($_FILES['uploadedfile']['type']);
+	$es_data = pg_escape_bytea($_FILES['uploadedfile']['mime']);
 	
 	# From the insertion query
-	$query = "INSERT INTO NOW_PHOTOS(id, data) Values(4, '$es_data')";
+	$query = "INSERT INTO NOW_PHOTOS(id, data) Values(5, '$es_data')";
 	
 	pg_query($db, $query); 
 	

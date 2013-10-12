@@ -11,8 +11,14 @@
 	# Get the image file data
 	$es_data = pg_escape_bytea($_FILES['uploadedfile']['name']);
 	
+	$query = "SELECT * FROM NOW_PHOTOS";
+	
+	$result = pg_query($db, $query); 
+	
+	$uid = pg_num_rows($result) + 1;
+	
 	# From the insertion query
-	$query = "INSERT INTO NOW_PHOTOS(id, data) Values(7, '$es_data')";
+	$query = "INSERT INTO NOW_PHOTOS(id, data) Values(" . $uid . ", '$es_data')";
 	
 	pg_query($db, $query); 
 	

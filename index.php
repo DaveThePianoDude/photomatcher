@@ -48,10 +48,10 @@
 				var topConstraint = 0;
 
 				// The slider can move 200 pixels down
-				var bottomConstraint = 200;
+				var bottomConstraint = 100;
 
 				// Custom scale factor for converting the pixel offset into a real value
-				var scaleFactor = 1.5;
+				var scaleFactor = 1.0;
 
 				Event.onDOMReady(function() {
 
@@ -79,7 +79,8 @@
 
 						// update the text box with the actual value
 						
-						
+						$('#img').css('opacity', ui.value)
+
 						//fld.value = actualValue;
 
 						// Update the title attribute on the background.  This helps assistive
@@ -197,6 +198,8 @@
 		
 		echo "}).addTo(map);";
 		
+		$x = 0;
+		
 		while ($row = pg_fetch_row($result))
 		{
 			 $count = count($row);
@@ -221,9 +224,16 @@
 			{
 			
 				echo "var marker = L.marker([$lat, $lon]).addTo(map);";
-				echo "marker.bindPopup(\x22<img src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='360px' width='240px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+				
+				
+				//echo "marker.bindPopup(\x22<img id='img" . $x . "' src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='360px' width='240px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 	
-			}	 
+	
+				echo "marker.bindPopup(\x22<img id='img' src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='360px' width='240px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+	
+			}
+
+			$x = $x + 1;			
 		 } 
 		
 		echo "map.setView(london, 13).addLayer(osm);";

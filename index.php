@@ -124,7 +124,7 @@
 
 	$image = pg_unescape_bytea(pg_result($result, 0, 1));
 	
-	echo $image
+	echo '$image.size';
 	
 	//header('Content-Type: image/x-png'); //or whatever
 

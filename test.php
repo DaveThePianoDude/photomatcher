@@ -2,9 +2,7 @@
 
 	if (isset($_FILES['uploadedfile']))
 	{
-		
-	
-		echo "$_FILES['uploadedfile']['tmp_name']";
+		echo $_FILES['uploadedfile']['tmp_name'];
 	}
 	else
 	

@@ -9,13 +9,13 @@
 	$db = pg_connect(pg_connection_string());
 	
 	// # Get the image file data
-	// $uploadedfile = $_FILES['uploadedfile']['tmp_name']);
+	$uploadedfile = $_files['uploadedfile']['tmp_name']);
 	
-	// if (isset($uploadedfile))
-	// {
-		// $finfo = finfo_open(FILEINFO_MIME_TYPE);
-		// $mime=finfo_file($finfo, $_FILES['uploadedfile']['tmp_name']);
-	// }
+	if (isset($uploadedfile))
+	{
+		$finfo = finfo_open(fileinfo_mime_type);
+		$mime=finfo_file($finfo, $_files['uploadedfile']['tmp_name']);
+	}
 	
 	// $query = "SELECT * FROM NOW_PHOTOS";
 	

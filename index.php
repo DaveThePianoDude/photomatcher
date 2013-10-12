@@ -137,12 +137,16 @@
 			$row_value = trim($row_value);
 		
 			echo("<td>$row_value</td>");
+			
+			$img_str=$row_value;
 		}
 		
 		echo("</tr>");
 	}
 	echo("</table>");
 	
+	echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
+    
 	pg_free_result($result);
 	
 	pg_close($db);

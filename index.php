@@ -122,9 +122,9 @@
 
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
 
-	$image = pg_unescape_bytea(pg_result($row, 0, 1));
+	$image = pg_unescape_bytea(pg_result($result, 0, 1));
 	
-	echo $image;
+	echo $image
 	
 	//header('Content-Type: image/x-png'); //or whatever
 

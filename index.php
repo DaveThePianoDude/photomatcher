@@ -119,11 +119,13 @@
 		
 	echo "</script>";
 	
+	echo 'got here';
+	
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
 
 	while ($row = pg_fetch_row($result))
 	{
-	echo('found a row');
+		echo('found a row');
 	}
 
 	pg_free_result($result);

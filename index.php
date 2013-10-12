@@ -130,7 +130,7 @@
 
 	$ctobj = $image;
 	
-    echo "<IMG SRC=show.php> </br>";
+   // echo "<IMG SRC=show.php> </br>";
 
 	pg_free_result($result);
 	

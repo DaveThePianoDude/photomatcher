@@ -119,16 +119,16 @@
 		
 	echo "</script>";
 	
-	echo 'got here';
-	
-	$result = pg_query($db, "SELECT data FROM NOW_PHOTOS");
 
-	while ($row = pg_fetch_row($result))
-	{
-		$image = pg_unescape_bytea(pg_result($row, 0, 0));
-		header('Content-Type: image/x-png'); //or whatever
-		readfile($image);
-	}
+	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
+
+	$image = pg_unescape_bytea(pg_result($row, 0, 1));
+	header('Content-Type: image/x-png'); //or whatever
+
+	$ctobj = $image;
+	
+    echo "<IMG SRC=show.php> </br>";
+
 
 	pg_free_result($result);
 	

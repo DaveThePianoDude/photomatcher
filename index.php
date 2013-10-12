@@ -44,7 +44,7 @@
 		{
 			echo "Database connection succeeded.";
 			
-			echo "Now 'n' Then v. 0.124";
+			echo "Now 'n' Then v. 0.126";
 			
 			$query = "CREATE TABLE IF NOT EXISTS Places (natId bigserial primary key NOT NULL, userName varchar(20) NOT NULL, locationId bigserial, photoNowId bigserial, photoThenId bigserial, lat varchar(50) NOT NULL, lon varchar(50) NOT NULL);";
 			
@@ -61,14 +61,13 @@
 	
 		if ($natId != NULL)
 		{
-	
-		$query = "INSERT INTO Places VALUES ($natId, '$userName', $locationId, $photoNowId, $photoThenId, '$lat', '$lon');";
-		
-		echo $query;
-		
-		pg_query($db, $query);// comment
-		
-		echo "inserted row";
+			$query = "INSERT INTO Places VALUES ($natId, '$userName', $locationId, $photoNowId, $photoThenId, '$lat', '$lon');";
+			
+			echo $query;
+			
+			pg_query($db, $query);// comment
+			
+			echo "inserted row";
 		}
 	
 		$result = pg_query($db, "SELECT * FROM Places");
@@ -120,9 +119,16 @@
 		
 	echo "</script>";
 	
-	
+	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
+
+	while ($row = pg_fetch_row($result))
+	{
+	echo('found a row');
+	}
+
 	pg_free_result($result);
 	
+	pg_close($db);
 	?>
 </html>
 

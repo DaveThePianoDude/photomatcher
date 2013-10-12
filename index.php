@@ -133,7 +133,7 @@
     echo("<tr>");
 		foreach ($line as $col_value => $row_value) {
 		
-			$row_value = trim($row_value, ' ');
+			$clean = trim($row_value, "\x00..\x1F");
 		
 			echo("<td>$row_value</td>");
 		}

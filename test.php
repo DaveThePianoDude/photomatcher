@@ -4,7 +4,9 @@
 	{
 		$info = getimagesize($_FILES['uploadedfile']['tmp_name']);
 		
-		echo $info["mime"];
+		//echo $info["mime"]; // will return the mime type
+		
+		echo $info["size"];
 	}
 	else
 	

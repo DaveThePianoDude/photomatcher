@@ -125,7 +125,7 @@
 	
 	$uid = pg_num_rows($result);
 	
-	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '" . $uid ."'");
+	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = 11");
 
 	echo "<br>GOT HERE";
 	

@@ -21,7 +21,7 @@
 		#slider { width: 15px; height:300px; }
 		
 		#slider-bg {
-			background:url(http://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 repeat;
+			background:url(http://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 no-repeat;
 		}
 		#slider-thumb {
 			left: 0;

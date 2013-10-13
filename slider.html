@@ -16,6 +16,7 @@
 </style>
 	<!-- Combo-handled YUI JS files: --> 
 	<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/dragdrop/dragdrop-min.js&2.9.0/build/slider/slider-min.js"></script>
+	
 	<script type="text/javascript">
 	
 		(function() {
@@ -24,7 +25,7 @@
 				lang  = YAHOO.lang,
 				slider, 
 				bg="slider-bg", thumb="slider-thumb", 
-				valuearea="slider-value", textfield="slider-converted-value"
+				valuearea="slider-value", textfield="slider-converted-value", imagefield="slider-image"
 
 			// The slider can move 0 pixels up
 			var topConstraint = 0;
@@ -33,7 +34,7 @@
 			var bottomConstraint = 200;
 
 			// Custom scale factor for converting the pixel offset into a real value
-			var scaleFactor = 1.5;
+			var scaleFactor = 1.0;
 
 			Event.onDOMReady(function() {
 
@@ -51,6 +52,7 @@
 
 					var valnode = Dom.get(valuearea);
 					var fld = Dom.get(textfield);
+					var pic = Dom.get("slider-image");
 
 					// Display the pixel value of the control
 					valnode.innerHTML = offsetFromStart;
@@ -61,11 +63,12 @@
 
 					// update the text box with the actual value
 					fld.value = actualValue;
-
+				
+					pic.style.opacity = actualValue / 200;
+							
 					// Update the title attribute on the background.  This helps assistive
 					// technology to communicate the state change
 					Dom.get(bg).title = "slider value = " + actualValue;
-
 				});
 
 				slider.subscribe("slideStart", function() {
@@ -89,6 +92,7 @@
 
 						// convert the real value into a pixel offset
 						slider.setValue(Math.round(v/scaleFactor));
+						$("#slider-image").setValue(0);
 					}
 				});
 				
@@ -116,7 +120,7 @@
 	</div>
 
 	<p>Pixel value: <span id="slider-value">0</span></p>
-
+	<img id="slider-image" src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' /><br /><br />
 	<p>Converted value:
 	<input autocomplete="off" id="slider-converted-value" type="text" value="0" size="4" maxlength="4" />
 	</p>

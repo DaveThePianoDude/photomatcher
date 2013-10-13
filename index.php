@@ -212,28 +212,15 @@
 
 						var valnode = Dom.get(valuearea);
 						var fld = Dom.get(textfield);
-
-						// Display the pixel value of the control
+						var pic = Dom.get("thenImage12");
+						
 						valnode.innerHTML = offsetFromStart;
 
-						// use the scale factor to convert the pixel offset into a real
-						// value
 						var actualValue = slider.getRealValue();
-
-						// update the text box with the actual value
-						
-						var Img = Dom.get("thenImage12");
-						
-						Img.css("opacity", 0.1)
-
-						//fld.value = actualValue;
-
-						// Update the title attribute on the background.  This helps assistive
-						// technology to communicate the state change
-						
-						
+		
+						pic.style.opacity = actualValue / 200;
+									
 						Dom.get(bg).title = "slider value = " + actualValue;
-
 					});
 
 					slider.subscribe("slideStart", function() {

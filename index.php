@@ -22,6 +22,10 @@
 		
 		#slider-bg {
 			background:url(http://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 no-repeat;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
 		}
 		#slider-thumb {
 			left: 0;

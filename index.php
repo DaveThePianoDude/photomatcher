@@ -193,7 +193,7 @@
 				var topConstraint = 0;
 
 				// The slider can move 300 pixels down
-				var bottomConstraint = 280;
+				var bottomConstraint = 290;
 
 				// Custom scale factor for converting the pixel offset into a real value
 				var scaleFactor = 1.0;
@@ -220,7 +220,7 @@
 
 						var actualValue = slider.getRealValue();
 		
-						pic.style.opacity = actualValue / 280;
+						pic.style.opacity = actualValue / 290;
 									
 						Dom.get(bg).title = "slider value = " + actualValue;
 					});

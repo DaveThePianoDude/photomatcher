@@ -6,7 +6,7 @@
     <!-- Combo-handled YUI CSS files: --> 
 <style type="text/css">
 
-    #slider { width: 15px; height:300px;}
+    #slider { width: 15px;}
 	#slider-bg {
     background:url(http://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 no-repeat;
 }
@@ -31,7 +31,7 @@
 			var topConstraint = 0;
 
 			// The slider can move 200 pixels down
-			var bottomConstraint = 200;
+			var bottomConstraint = 300;
 
 			// Custom scale factor for converting the pixel offset into a real value
 			var scaleFactor = 1.0;
@@ -64,7 +64,7 @@
 					// update the text box with the actual value
 					fld.value = actualValue;
 				
-					pic.style.opacity = actualValue / 200;
+					pic.style.opacity = actualValue / 300;
 							
 					// Update the title attribute on the background.  This helps assistive
 					// technology to communicate the state change

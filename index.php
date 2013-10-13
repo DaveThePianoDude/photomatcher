@@ -188,8 +188,8 @@
 				// The slider can move 0 pixels up
 				var topConstraint = 0;
 
-				// The slider can move 200 pixels down
-				var bottomConstraint = 200;
+				// The slider can move 300 pixels down
+				var bottomConstraint = 300;
 
 				// Custom scale factor for converting the pixel offset into a real value
 				var scaleFactor = 1.0;

@@ -21,7 +21,7 @@
 		#slider { width: 15px; height:300px; }
 		
 		#slider-bg {
-			background:url(http://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 no-repeat;
+			background:url(http://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 repeat;
 		}
 		#slider-thumb {
 			left: 0;
@@ -216,7 +216,7 @@
 
 						var actualValue = slider.getRealValue();
 		
-						pic.style.opacity = actualValue / 200;
+						pic.style.opacity = actualValue / 300;
 									
 						Dom.get(bg).title = "slider value = " + actualValue;
 					});

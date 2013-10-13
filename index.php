@@ -17,10 +17,8 @@
     </style>
 	
 	<style type="text/css">
-		#box {
-			width: 200px; height: 200px; background-color: #ff0000; }
 			
-		#slider { width: 15px; }
+		#slider { width: 15px; height:300px; }
 		
 		#slider-bg {
 			background:url(http://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 no-repeat;

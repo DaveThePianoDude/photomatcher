@@ -102,6 +102,8 @@
 		
 		echo "}).addTo(map);";
 		
+		echo "map.on('popupopen', restartSlider());";
+		
 		$x = 0;
 		
 		while ($row = pg_fetch_row($result))
@@ -126,15 +128,9 @@
 		 	 
 			if (is_numeric($lat) && is_numeric($lon))
 			{
-			
 				echo "var marker = L.marker([$lat, $lon]).addTo(map);";
 				
-				
-				//echo "marker.bindPopup(\x22<img id='img" . $x . "' src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='360px' width='240px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
-	
-	
 				echo "marker.bindPopup(\x22<h3>".$x."</h3><img id='thenImage" . $x . "' src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='240px' width='300px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
-	
 			}
 
 			$x = $x + 1;			
@@ -180,6 +176,76 @@
 	
 	?>
 		<script type="text/javascript">
+		
+		
+		Event.onDOMReady(function() {
+
+			function restartSlider() {
+		
+					slider = YAHOO.widget.Slider.getHorizSlider(bg, 
+									 thumb, topConstraint, bottomConstraint, 0);
+
+					// Sliders with ticks can be animated without YAHOO.util.Anim
+					slider.animate = true;
+
+					slider.getRealValue = function() {
+						return Math.round(this.getValue() * scaleFactor);
+					}
+
+					slider.subscribe("change", function(offsetFromStart) {
+
+						var valnode = Dom.get(valuearea);
+						var fld = Dom.get(textfield);
+						var pic = Dom.get("thenImage12");
+						
+						valnode.innerHTML = offsetFromStart;
+
+						var actualValue = slider.getRealValue();
+		
+						pic.style.opacity = actualValue / 290;
+									
+						Dom.get(bg).title = "slider value = " + actualValue;
+					});
+
+					slider.subscribe("slideStart", function() {
+							YAHOO.log("slideStart fired", "warn");
+						});
+
+					slider.subscribe("slideEnd", function() {
+							YAHOO.log("slideEnd fired", "warn");
+						});
+
+					// Listen for keystrokes on the form field that displays the
+					// control's value.  While not provided by default, having a
+					// form field with the slider is a good way to help keep your
+					// application accessible.
+					
+					Event.on(textfield, "keydown", function(e) {
+
+						// set the value when the 'return' key is detected
+						if (Event.getCharCode(e) === 13) {
+							var v = parseFloat(this.value, 10);
+							v = (lang.isNumber(v)) ? v : 0;
+
+							// convert the real value into a pixel offset
+							slider.setValue(Math.round(v/scaleFactor));
+						}
+					});
+					
+					// Use setValue to reset the value to white:
+					Event.on("putval", "click", function(e) {
+						slider.setValue(100, false); //false here means to animate if possible
+					});
+					
+					// Use the "get" method to get the current offset from the slider's start
+					// position in pixels.  By applying the scale factor, we can translate this
+					// into a "real value
+					Event.on("getval", "click", function(e) {
+						YAHOO.log("Current value: "   + slider.getValue() + "\n" + 
+								  "Converted value: " + slider.getRealValue(), "info", "example"); 
+					});
+			
+			}
 		
 			(function() {
 				var Event = YAHOO.util.Event,
@@ -237,6 +303,7 @@
 					// control's value.  While not provided by default, having a
 					// form field with the slider is a good way to help keep your
 					// application accessible.
+					
 					Event.on(textfield, "keydown", function(e) {
 
 						// set the value when the 'return' key is detected
@@ -262,6 +329,7 @@
 								  "Converted value: " + slider.getRealValue(), "info", "example"); 
 					});
 				});
+				
 			})();
 			
 	</script>

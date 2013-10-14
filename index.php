@@ -102,7 +102,7 @@
 		
 		echo "}).addTo(map);";
 		
-		echo "map.on('popupopen', restartSlider());";
+		//echo "map.on('popupopen', restartSlider());";
 		
 		$x = 0;
 		

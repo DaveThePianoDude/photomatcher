@@ -11,7 +11,25 @@
 			
 		function reslide() {
 		
-					alert ('hello');
+				alert ('hello');
+					
+				var Event = YAHOO.util.Event,
+					Dom   = YAHOO.util.Dom,
+					lang  = YAHOO.lang,
+					slider, 
+					bg="slider-bg", thumb="slider-thumb", 
+					valuearea="slider-value", textfield="slider-converted-value"
+
+				// The slider can move 0 pixels up
+				var topConstraint = 0;
+
+				// The slider can move 300 pixels down
+				var bottomConstraint = 290;
+
+				// Custom scale factor for converting the pixel offset into a real value
+				var scaleFactor = 1.0;
+
+				Event.onDOMReady(function() {
 
 					slider = YAHOO.widget.Slider.getHorizSlider(bg, 
 									 thumb, topConstraint, bottomConstraint, 0);
@@ -74,8 +92,8 @@
 						YAHOO.log("Current value: "   + slider.getValue() + "\n" + 
 								  "Converted value: " + slider.getRealValue(), "info", "example"); 
 					});
-				}
-		
+				});
+			}
 	
 	</script>
 	

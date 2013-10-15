@@ -102,8 +102,6 @@
 		
 		echo "}).addTo(map);";
 		
-		//echo "map.on('popupopen', restartSlider());";
-		
 		$x = 0;
 		
 		while ($row = pg_fetch_row($result))
@@ -177,11 +175,8 @@
 	?>
 		<script type="text/javascript">
 		
-		
-		Event.onDOMReady(function() {
+		function reslide() {
 
-			function restartSlider() {
-		
 					slider = YAHOO.widget.Slider.getHorizSlider(bg, 
 									 thumb, topConstraint, bottomConstraint, 0);
 
@@ -219,7 +214,6 @@
 					// control's value.  While not provided by default, having a
 					// form field with the slider is a good way to help keep your
 					// application accessible.
-					
 					Event.on(textfield, "keydown", function(e) {
 
 						// set the value when the 'return' key is detected
@@ -244,8 +238,8 @@
 						YAHOO.log("Current value: "   + slider.getValue() + "\n" + 
 								  "Converted value: " + slider.getRealValue(), "info", "example"); 
 					});
-			
-			}
+				}
+		
 		
 			(function() {
 				var Event = YAHOO.util.Event,
@@ -303,7 +297,6 @@
 					// control's value.  While not provided by default, having a
 					// form field with the slider is a good way to help keep your
 					// application accessible.
-					
 					Event.on(textfield, "keydown", function(e) {
 
 						// set the value when the 'return' key is detected
@@ -329,7 +322,6 @@
 								  "Converted value: " + slider.getRealValue(), "info", "example"); 
 					});
 				});
-				
 			})();
 			
 	</script>

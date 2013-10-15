@@ -179,6 +179,8 @@
 		<script type="text/javascript">
 		
 		function reslide() {
+		
+					alert ('hello');
 
 					slider = YAHOO.widget.Slider.getHorizSlider(bg, 
 									 thumb, topConstraint, bottomConstraint, 0);

@@ -136,7 +136,7 @@
 		
 		echo "map.setView(london, 13).addLayer(osm);";
 		
-		echo "map.on('popupopen', alert('clicked'));";
+		echo "map.on('popupopen', function(e) { alert('hello');} );";
 		
 	echo "</script>";
 	

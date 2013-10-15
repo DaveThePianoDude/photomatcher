@@ -136,6 +136,8 @@
 		
 		echo "map.setView(london, 13).addLayer(osm);";
 		
+		echo "map.on('click', reslide);";
+		
 	echo "</script>";
 	
 	$query = "SELECT * FROM NOW_PHOTOS";

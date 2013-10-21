@@ -235,28 +235,21 @@
 	
 	$result = pg_query($db, $query); 
 	
-	$uid = pg_num_rows($result);
+	//$uid = pg_num_rows($result);
 	
-//	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
-	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
-
-	echo("<table border=2><tr><td>DATA</td></tr>");
+	$uid = '2';
 	
+	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
+		
 	while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 	
-		echo("<tr>");
-		
 		foreach ($line as $col_value => $row_value) {
 		
 			$img_str = trim($row_value);
 		
-			echo '<td><img src="data:image/jpg;base64,'.$img_str.'"/></td>';
-		}
-		
-		echo("</tr>");
+			echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
+		}	
 	}
-	
-	echo("</table>");
     
 	pg_free_result($result);
 	

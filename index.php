@@ -11,8 +11,6 @@
 			
 		function reslide() {
 		
-				alert ('hello');
-					
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,
 					lang  = YAHOO.lang,
@@ -225,10 +223,8 @@
 				$line = pg_fetch_row($result2);
 	
 				$img_str = trim($line[1]);
-	
-				//echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
-				
-				echo "marker.bindPopup(\x22<h3>".$x."</h3><img src='data:image/jpg;base64,".$img_str."' height='240px' width='300px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+		
+				echo "marker.bindPopup(\x22<h3>Photo Title #".$x."</h3><img src='data:image/jpg;base64,".$img_str."' height='240px' width='300px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 			}
 
 			$x = $x + 1;			

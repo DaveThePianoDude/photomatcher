@@ -244,9 +244,9 @@
 	while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 	
 	
-		foreach ($line as $col_value => $row_value) {
+		foreach ($line as $col_value) {
 		
-			$img_str = trim($row_value);
+			$img_str = trim($col_value);
 			//$img_str = $columns[1];
 			echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
 		}	

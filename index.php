@@ -247,7 +247,7 @@
 		//foreach ($line as $col_value) {
 		
 			//$img_str = trim($col_value);
-			$img_str = $line[1];
+			$img_str = $line[2];
 			echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
 		//}	
 	}

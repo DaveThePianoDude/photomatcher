@@ -242,14 +242,10 @@
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
 		
 	while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-	
-		$line as $col_value;
-		$line as $col_value;
-	
-	
+
 		//foreach ($line as $col_value) {
 		
-			$img_str = trim($col_value);
+			$img_str = trim($line[1]);
 			//$img_str = trim($line[0]);
 			echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
 		//}	

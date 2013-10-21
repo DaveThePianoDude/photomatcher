@@ -240,7 +240,7 @@
 //	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
 
-	echo("<table border=2><tr><td>UID</td><td>DATA</td></tr>");
+	echo("<table border=2><tr><td>DATA</td></tr>");
 	
 	while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 	
@@ -248,18 +248,15 @@
 		
 		foreach ($line as $col_value => $row_value) {
 		
-			$row_value = trim($row_value);
+			$img_str = trim($row_value);
 		
-			echo("<td>$row_value</td>");
-			
-			$img_str=$row_value;
+			echo '<td><img src="data:image/jpg;base64,'.$img_str.'"/></td>';
 		}
 		
 		echo("</tr>");
 	}
-	echo("</table>");
 	
-	echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
+	echo("</table>");
     
 	pg_free_result($result);
 	

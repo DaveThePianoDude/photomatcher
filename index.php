@@ -241,7 +241,7 @@
 	
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
 	
-	$line = pg_fetch_array($result, 0, 1);
+	$line = pg_fetch_row($result, 0, 1);
 	
 //	while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 

@@ -218,7 +218,7 @@
 			{
 				echo "var marker = L.marker([$lat, $lon]).addTo(map);";
 				
-				echo "marker.bindPopup(\x22<h3>".$x."</h3><img id='thenImage" . $x . "' src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='240px' width='300px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+				echo "marker.bindPopup(\x22<h3>".$x."</h3><img id='thenImage" . $img_str . "' src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' height='240px' width='300px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 			}
 
 			$x = $x + 1;			
@@ -231,29 +231,16 @@
 		
 	echo "</script>";
 	
-	$query = "SELECT * FROM NOW_PHOTOS";
-	
-	$result = pg_query($db, $query); 
-	
-	//$uid = pg_num_rows($result);
-	
 	$uid = '2';
 	
 	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
 	
 	$line = pg_fetch_row($result);
 	
-//	while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-
-	//	foreach ($line as $col_value) {
-		
-			//$img_str = trim($col_value);
-			$img_str = trim($line[1]);
-			echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
+	$img_str = trim($line[1]);
+	
+	echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
 			
-	//	}	
-//	}
-    
 	pg_free_result($result);
 	
 	pg_close($db);

@@ -244,12 +244,12 @@
 	while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 	
 	
-		foreach ($line as $col_value) {
+		//foreach ($line as $col_value) {
 		
-			$img_str = trim($col_value);
-			//$img_str = $columns[1];
+			//$img_str = trim($col_value);
+			$img_str = $line[1];
 			echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
-		}	
+		//}	
 	}
     
 	pg_free_result($result);

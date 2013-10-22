@@ -224,7 +224,13 @@
 	
 				$img_str = trim($line[1]);
 		
-				echo "marker.bindPopup(\x22<h3>Photo Title #".$x."</h3><img ID='thenImage12' src='data:image/jpg;base64,".$img_str."' height='240px' width='300px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+		
+		'https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg' 
+		
+		echo "marker.bindPopup(\x22<h3>Photo Title #".$x."</h3><img ID='thenImage12' src='https://scontent-a.xx.fbcdn.net/hphotos-ash3/s600x600/1146678_10151933032551834_1629612437_n.jpg'  height='240px' width='300px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+		
+		
+				//echo "marker.bindPopup(\x22<h3>Photo Title #".$x."</h3><img ID='thenImage12' src='data:image/jpg;base64,".$img_str."' height='240px' width='300px'></img><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 			}
 
 			$x = $x + 1;			

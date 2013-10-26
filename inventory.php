@@ -42,11 +42,13 @@
 			
 			$inner_result = pg_query($db, "SELECT * FROM Places WHERE natId = '$uid'");
 			
-			$natId = trim($line[0]);
-			$lat = trim($line[5]);
-			$lon = trim($line[6]);
+			$inner_line = pg_fetch_row($inner_result);
 			
-			echo 'NAT ID: '.$natID.' ... LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
+			$natId = trim($inner_line[0]);
+			$lat = trim($inner_line[5]);
+			$lon = trim($inner_line[6]);
+			
+			echo 'NAT ID: '.$natId.' ... LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
 			
 			echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
 			

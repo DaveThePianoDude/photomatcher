@@ -102,6 +102,10 @@
 			border-width:1px;
 			border-color:red }
 	
+	ul.images { position: relative;}
+	
+	ul.images li {position: absolute;}
+	
     </style>
 	
 	<style type="text/css">
@@ -205,8 +209,14 @@
 				$line = pg_fetch_row($result2);
 	
 				$img_str = trim($line[1]);
+				
+				$result2 = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
+				
+				$line = pg_fetch_row($result2);
+				
+				$img_str2 = trim($line[1]);
 		
-				echo "marker.bindPopup(\x22<h3>Photo Title #".$x."</h3><div ID='bigdiv' ><img ID='thenImage12' style='opacity:0' src='data:image/jpg;base64,".$img_str."' height='240px' width='300px'></img></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+				echo "marker.bindPopup(\x22<h3>Photo Title #".$x."</h3><div ID='bigdiv' ><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='data:image/jpg;base64,".$img_str."' height='240px' width='300px'></img></li><li><img ID='thenImage12' style='opacity:0' src='data:image/jpg;base64,".$img_str2."' height='240px' width='300px'></img></li></ul></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 			}
 
 			$x = $x + 1;			

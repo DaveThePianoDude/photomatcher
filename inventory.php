@@ -34,21 +34,26 @@
 
 		$uid = '1';
 		
-		$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
+		$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
 		
-		$line = pg_fetch_row($result);
+		while ($line = pg_fetch_row($result))
+		{	
+			$img_str = trim($line[1]);
+			
+			echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
 		
-		$img_str = trim($line[1]);
+			$inner_result = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
+			
+			$inner_line = pg_fetch_row($inner_result);
+			
+			$img_str = trim($inner_line[1]);
+			
+			echo '<img src="data:image/jpg;base64,'.$img_str.'"/><br>';
+			
+			pg_free_result($inner_result);
 		
-		echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
-		
-		$result = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
-		
-		$line = pg_fetch_row($result);
-		
-		$img_str = trim($line[1]);
-		
-		echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
+			$uid = $uid + 1;
+		}
 				
 		pg_free_result($result);
 		

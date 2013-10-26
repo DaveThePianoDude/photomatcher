@@ -48,8 +48,15 @@
 			
 			$img_str = trim($inner_line[1]);
 			
-			echo '<img src="data:image/jpg;base64,'.$img_str.'"/><br>';
+			$inner_result = pg_query($db, "SELECT * FROM PLACES WHERE natId = '$uid'");
 			
+			$lat = trim($line[0]);
+			$lon = trim($line[1]);
+			
+			echo 'LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
+			
+			echo '<img src="data:image/jpg;base64,'.$img_str.'"/><br>';
+				
 			pg_free_result($inner_result);
 		
 			$uid = $uid + 1;

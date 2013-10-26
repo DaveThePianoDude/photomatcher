@@ -15,7 +15,7 @@
 	
 	pg_query($db, $query);
 	
-	$query = "DELETE FROM PLACES WHERE ID > 0";
+	$query = "DELETE FROM PLACES WHERE NATID > 0";
 	
 	pg_query($db, $query);
 	

@@ -27,7 +27,7 @@
 		pg_query($db, $query);
 	}
 	
-	$query = "SELECT * FROM PLACES";
+	$query = "SELECT * FROM Places";
 		
 	$result = pg_query($db, $query);
 		
@@ -42,12 +42,10 @@
 
 	if ($natId != NULL)
 	{
-		$query = "INSERT INTO PLACES VALUES ($natId, '$userName', $locationId, $photoNowId, $photoThenId, '$lat', '$lon');";
+		$query = "INSERT INTO Places VALUES ($natId, '$userName', $locationId, $photoNowId, $photoThenId, '$lat', '$lon');";
 		
 		echo $query;
 		
 		pg_query($db, $query);
-		
-		echo "inserted row";
 	}
 ?>

@@ -48,10 +48,10 @@
 			
 			$img_str = trim($inner_line[1]);
 			
-			$inner_result = pg_query($db, "SELECT * FROM PLACES WHERE natId = '$uid'");
+			$inner_result = pg_query($db, "SELECT * FROM Places WHERE natId = '$uid'");
 			
-			$lat = trim($line[0]);
-			$lon = trim($line[1]);
+			$lat = trim($line[5]);
+			$lon = trim($line[6]);
 			
 			echo 'LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
 			

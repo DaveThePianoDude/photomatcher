@@ -40,20 +40,21 @@
 		{	
 			$img_str = trim($line[1]);
 			
+			$inner_result = pg_query($db, "SELECT * FROM Places WHERE natId = '$uid'");
+			
+			$natId = trim($line[0]);
+			$lat = trim($line[5]);
+			$lon = trim($line[6]);
+			
+			echo 'NAT ID: '.$natID.' ... LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
+			
 			echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
-		
+			
 			$inner_result = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
 			
 			$inner_line = pg_fetch_row($inner_result);
 			
 			$img_str = trim($inner_line[1]);
-			
-			$inner_result = pg_query($db, "SELECT * FROM Places WHERE natId = '$uid'");
-			
-			$lat = trim($line[5]);
-			$lon = trim($line[6]);
-			
-			echo 'LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
 			
 			echo '<img src="data:image/jpg;base64,'.$img_str.'"/><br>';
 				

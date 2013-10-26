@@ -50,6 +50,10 @@
 						var actualValue = slider.getRealValue();
 		
 						pic.style.opacity = actualValue / 290;
+						
+						pic = Dom.get("nowImage12");
+						
+						pic.style.opacity = 1 - actualValue / 290;
 									
 						Dom.get(bg).title = "slider value = " + actualValue;
 					});
@@ -216,7 +220,7 @@
 				
 				$img_str2 = trim($line[1]);
 		
-				echo "marker.bindPopup(\x22<h3>Photo Title #".$x."</h3><div ID='bigdiv' ><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='data:image/jpg;base64,".$img_str."' height='240px' width='300px'></img></li><li><img ID='thenImage12' style='opacity:0' src='data:image/jpg;base64,".$img_str2."' height='240px' width='300px'></img></li></ul></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+				echo "marker.bindPopup(\x22<h3>Photo Title #".$x."</h3><div ID='bigdiv' ><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='data:image/jpg;base64,".$img_str."' height='240px' width='300px'></img></li><li><img ID='nowImage12' style='opacity:1' src='data:image/jpg;base64,".$img_str2."' height='240px' width='300px'></img></li></ul></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 			}
 
 			$x = $x + 1;			
@@ -276,6 +280,10 @@
 						var actualValue = slider.getRealValue();
 		
 						pic.style.opacity = actualValue / 290;
+						
+						pic = Dom.get("nowImage12");
+						
+						pic.style.opacity = 1 - actualValue / 290;
 									
 						Dom.get(bg).title = "slider value = " + actualValue;
 					});

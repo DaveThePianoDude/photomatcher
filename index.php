@@ -152,11 +152,11 @@
 			echo "Database connection succeeded.";
 			
 			echo "Now 'n' Then v. 0.127";
-			
-			$query = "CREATE TABLE IF NOT EXISTS Places (natId bigserial primary key NOT NULL, userName varchar(20) NOT NULL, locationId bigserial, photoNowId bigserial, photoThenId bigserial, lat varchar(50) NOT NULL, lon varchar(50) NOT NULL);";
-			
-			pg_query($db, $query);
 		}
+		
+		$query = "CREATE TABLE IF NOT EXISTS Places (natId bigserial primary key NOT NULL, userName varchar(20) NOT NULL, locationId bigserial, photoNowId bigserial, photoThenId bigserial, lat varchar(50) NOT NULL, lon varchar(50) NOT NULL);";
+			
+		pg_query($db, $query);
 
 		$result = pg_query($db, "SELECT * FROM Places");
 		 
@@ -172,7 +172,7 @@
 		
 		echo "}).addTo(map);";
 		
-		$x = 0;
+		$x = 1;
 		
 		while ($row = pg_fetch_row($result))
 		{

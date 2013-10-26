@@ -97,7 +97,7 @@
 	
 	<style type="text/css" media="screen">
 	
-	#map { height: 500px;
+	#map { height: 900px;
 			border-style:solid;
 			border-width:1px;
 			border-color:red }
@@ -217,24 +217,6 @@
 		echo "map.setView(london, 13).addLayer(osm);";
 		
 		echo "</script>";
-		
-		$uid = '1';
-		
-		$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
-		
-		$line = pg_fetch_row($result);
-		
-		$img_str = trim($line[1]);
-		
-		echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
-		
-		$result = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
-		
-		$line = pg_fetch_row($result);
-		
-		$img_str = trim($line[1]);
-		
-		echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
 				
 		pg_free_result($result);
 		

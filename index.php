@@ -144,6 +144,7 @@
 		if (!$db) {
 		
 			echo "Database connection error.";
+			
 			exit;
 			
 		} else
@@ -156,29 +157,10 @@
 			
 			pg_query($db, $query);
 		}
-		
-		$natId = $_GET['natId'];
-		$userName = $_GET['userName'];
-		$locationId = $_GET['locationId'];
-		$photoNowId = $_GET['photoNowId'];
-		$photoThenId = $_GET['photoThenId'];
-		$lat = $_GET['lat'];
-		$lon = $_GET['lon'];
-	
-		if ($natId != NULL)
-		{
-			$query = "INSERT INTO Places VALUES ($natId, '$userName', $locationId, $photoNowId, $photoThenId, '$lat', '$lon');";
-			
-			echo $query;
-			
-			pg_query($db, $query);// comment
-			
-			echo "inserted row";
-		}
-	
+
 		$result = pg_query($db, "SELECT * FROM Places");
 		 
-	echo "<script type=\x22text/javascript\x22>";
+		echo "<script type=\x22text/javascript\x22>";
 	
 		echo "var map = L.map(\x22map\x22).setView([38.7, -77.2], 8);";
 		
@@ -228,33 +210,41 @@
 			}
 
 			$x = $x + 1;			
-		 } 
+		} 
 		 
 		echo "map.on('popupopen', reslide);";
 		
 		echo "map.setView(london, 13).addLayer(osm);";
 		
+		echo "</script>";
 		
-	echo "</script>";
-	
-	$uid = '2';
-	
-	$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
-	
-	$line = pg_fetch_row($result);
-	
-	$img_str = trim($line[1]);
-	
-	echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
-			
-	pg_free_result($result);
-	
-	pg_close($db);
+		$uid = '1';
+		
+		$result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
+		
+		$line = pg_fetch_row($result);
+		
+		$img_str = trim($line[1]);
+		
+		echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
+		
+		$result = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
+		
+		$line = pg_fetch_row($result);
+		
+		$img_str = trim($line[1]);
+		
+		echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
+				
+		pg_free_result($result);
+		
+		pg_close($db);
 	
 	?>
 		<script type="text/javascript">
 		
 			(function() {
+			
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,
 					lang  = YAHOO.lang,

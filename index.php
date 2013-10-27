@@ -108,7 +108,7 @@
 	
 	ul.images { position: relative;}
 	
-	ul.images li {position: absolute;}
+	ul.images li {position: absolute;left:-20px;}
 	
     </style>
 	

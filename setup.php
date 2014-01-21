@@ -2,7 +2,7 @@
 
 	function pg_connection_string() {
 
-		return "dbname=d7qq84ps7u5thb host=ec2-184-73-175-240.compute-1.amazonaws.com port=5432 user=jnnvxxjaenvzor password=Xpq6UHZoub1e6LIUPdUZrX6bSz sslmode=require";
+		return "dbname=ddj80fqvfktej6 host=ec2-54-197-238-239.compute-1.amazonaws.com port=5432 user=xnzkzstbanolpo password=RMbAQCullzYZmfMSJ1V7BMz5vJ sslmode=require";
 	}
 	
 	# Establish db connection
@@ -10,7 +10,7 @@
 	
 	if (!$db) {
 	
-		echo "Database connection error.";
+		echo "Database connection error...";
 		exit;
 		
 	} else
@@ -21,9 +21,6 @@
 		
 		pg_query($db, $query);
 		
-		$query = "CREATE TABLE IF NOT EXISTS THEN_PHOTOS(id INT PRIMARY KEY, data BYTEA);";
-		
-		pg_query($db, $query);
 	}
 
 

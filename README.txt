@@ -16,3 +16,11 @@ A journal of activities on 10/1/2013, wherby we successfully pushed a PHP app to
 			  
   NOTE:  You only need one key on any one machine.  Even for multiple projects (e.g., Ruby and PHP projects
 		can share the same key.)
+
+3. Big time sink on getting the lat / lon integrated into the main mobile app.  Brother, Know Thyself!  
+
+4. Basic functions in place as of 10.26.13.  There is still a blue 'trombone slider' on the UI, however. :|
+
+5. Used the <ul> <li> combo to get the images to appear on top of the same spot.
+
+6. THis is still a toy, but it's cool.  

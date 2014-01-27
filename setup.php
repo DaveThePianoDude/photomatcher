@@ -20,6 +20,10 @@
 		$query = "CREATE TABLE IF NOT EXISTS NOW_PHOTOS(id INT PRIMARY KEY, data BYTEA);";
 		
 		pg_query($db, $query);
+
+		$query = "CREATE TABLE IF NOT EXISTS THEN_PHOTOS(id INT PRIMARY KEY, data BYTEA);";
+		
+		pg_query($db, $query);
 		
 	}
 

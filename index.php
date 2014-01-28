@@ -166,7 +166,7 @@
 		 
 		echo "<script type=\x22text/javascript\x22>";
 	
-		echo "var map = L.map(\x22map\x22).setView([38.7, -77.2], 8);";
+		echo "var map = L.map(\x22map\x22).setView([38.85, -77.09], 7);";
 		
 		echo "L.tileLayer(\x22http://{s}.tile.cloudmade.com/842d83399a1d4a588c20671f08990c5c/997/256/{z}/{x}/{y}.png\x22, {";
 		

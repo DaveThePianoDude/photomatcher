@@ -198,7 +198,7 @@
 				next($row); $y = $y + 1; 
 			}
 		 	 
-			if (is_numeric($lat) && is_numeric($lon))
+			if (is_numeric($lat) && is_numeric($lon) && $x < 4)
 			{
 				echo "var marker = L.marker([$lat, $lon]).addTo(map);";
 				

@@ -21,7 +21,7 @@
 				// The slider can move 0 pixels up
 				var topConstraint = 0;
 
-				// The slider can move 300 pixels down
+				// The slider can move 290 pixels down
 				var bottomConstraint = 290;
 
 				// Custom scale factor for converting the pixel offset into a real value
@@ -49,11 +49,11 @@
 
 						var actualValue = slider.getRealValue();
 		
-						pic.style.opacity = actualValue / 290;
+						pic.style.opacity = actualValue / bottomConstraint;
 						
 						pic = Dom.get("nowImage12");
 						
-						pic.style.opacity = 1 - actualValue / 290;
+						pic.style.opacity = 1 - actualValue / bottomConstraint;
 									
 						Dom.get(bg).title = "slider value = " + actualValue;
 					});
@@ -177,6 +177,8 @@
 		echo "}).addTo(map);";
 		
 		$x = 1;
+
+		$PHOTO_THRESHOLD = 3;
 		
 		while ($row = pg_fetch_row($result))
 		{
@@ -198,7 +200,7 @@
 				next($row); $y = $y + 1; 
 			}
 		 	 
-			if (is_numeric($lat) && is_numeric($lon) && $x < 3)
+			if (is_numeric($lat) && is_numeric($lon) && $x < $PHOTO_THRESHOLD)
 			{
 				echo "var marker = L.marker([$lat, $lon]).addTo(map);";
 				
@@ -247,7 +249,7 @@
 				// The slider can move 0 pixels up
 				var topConstraint = 0;
 
-				// The slider can move 300 pixels down
+				// The slider can move 290 pixels down
 				var bottomConstraint = 290;
 
 				// Custom scale factor for converting the pixel offset into a real value
@@ -275,11 +277,11 @@
 
 						var actualValue = slider.getRealValue();
 		
-						pic.style.opacity = actualValue / 290;
+						pic.style.opacity = actualValue / bottomConstraint;
 						
 						pic = Dom.get("nowImage12");
 						
-						pic.style.opacity = 1 - actualValue / 290;
+						pic.style.opacity = 1 - actualValue / bottomConstraint;
 									
 						Dom.get(bg).title = "slider value = " + actualValue;
 					});

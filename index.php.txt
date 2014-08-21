@@ -168,7 +168,7 @@
 	
 		echo "var map = L.map(\x22map\x22).setView([38.85, -77.09], 12);";
 		
-		echo "L.tileLayer(\x22http://{s}.tiles.mapbox.com/v3/hollandaise.j48k6kkg/{z}/{x}/{y}.png\x22, {";
+		echo "L.tileLayer(\x22http://{s}.tiles.mapbox.com/v3/MapID/{z}/{x}/{y}.png\x22, {";
 
 		echo "attribution: 'Map data &copy; <a href=\x22http://openstreetmap.org\x22>OpenStreetMap</a> contributors, <a href=\x22http://creativecommons.org/licenses/by-sa/2.0/\x22>CC-BY-SA</a>, Imagery © <a href=\x22http://cloudmade.com\x22>CloudMade</a>[…]',";
 		

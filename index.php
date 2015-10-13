@@ -3,9 +3,9 @@
   <head>
     <title>Ruby on Rails: Welcome aboard</title>
 
-	<link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 
 	<script type="text/javascript">
 
@@ -117,7 +117,7 @@
 		#slider { width: 15px; height:300px; }
 
 		#slider-bg {
-			background:url(https://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 no-repeat;
+			background:url(http://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 no-repeat;
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
@@ -128,9 +128,9 @@
 		}
 	</style>
 
-	<script src="https://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 
-	<script type="text/javascript" src="https://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/dragdrop/dragdrop-min.js&2.9.0/build/slider/slider-min.js"></script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/dragdrop/dragdrop-min.js&2.9.0/build/slider/slider-min.js"></script>
 
   </head>
 

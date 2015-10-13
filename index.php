@@ -2,20 +2,20 @@
 <html>
   <head>
     <title>Ruby on Rails: Welcome aboard</title>
-	
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
-	
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
 
 	<script type="text/javascript">
-			
+
 		function reslide() {
-		
+
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,
 					lang  = YAHOO.lang,
-					slider, 
-					bg="slider-bg", thumb="slider-thumb", 
+					slider,
+					bg="slider-bg", thumb="slider-thumb",
 					valuearea="slider-value", textfield="slider-converted-value"
 
 				// The slider can move 0 pixels up
@@ -29,7 +29,7 @@
 
 				Event.onDOMReady(function() {
 
-					slider = YAHOO.widget.Slider.getHorizSlider(bg, 
+					slider = YAHOO.widget.Slider.getHorizSlider(bg,
 									 thumb, topConstraint, bottomConstraint, 0);
 
 					// Sliders with ticks can be animated without YAHOO.util.Anim
@@ -44,17 +44,17 @@
 						var valnode = Dom.get(valuearea);
 						var fld = Dom.get(textfield);
 						var pic = Dom.get("thenImage12");
-						
+
 						valnode.innerHTML = offsetFromStart;
 
 						var actualValue = slider.getRealValue();
-		
+
 						pic.style.opacity = actualValue / bottomConstraint;
-						
+
 						pic = Dom.get("nowImage12");
-						
+
 						pic.style.opacity = 1 - actualValue / bottomConstraint;
-									
+
 						Dom.get(bg).title = "slider value = " + actualValue;
 					});
 
@@ -81,43 +81,43 @@
 							slider.setValue(Math.round(v/scaleFactor));
 						}
 					});
-					
+
 					// Use setValue to reset the value to white:
 					Event.on("putval", "click", function(e) {
 						slider.setValue(100, false); //false here means to animate if possible
 					});
-					
+
 					// Use the "get" method to get the current offset from the slider's start
 					// position in pixels.  By applying the scale factor, we can translate this
 					// into a "real value
 					Event.on("getval", "click", function(e) {
-						YAHOO.log("Current value: "   + slider.getValue() + "\n" + 
-								  "Converted value: " + slider.getRealValue(), "info", "example"); 
+						YAHOO.log("Current value: "   + slider.getValue() + "\n" +
+								  "Converted value: " + slider.getRealValue(), "info", "example");
 					});
 				});
 			}
-	
+
 	</script>
-	
+
 	<style type="text/css" media="screen">
-	
+
 	#map { height: 900px;
 			border-style:solid;
 			border-width:1px;
 			border-color:red }
-	
+
 	ul.images { position: relative;}
-	
+
 	ul.images li {position: absolute;left:-4px;}
-	
+
     </style>
-	
+
 	<style type="text/css">
-			
+
 		#slider { width: 15px; height:300px; }
-		
+
 		#slider-bg {
-			background:url(http://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 no-repeat;
+			background:url(https://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 no-repeat;
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
@@ -128,122 +128,122 @@
 		}
 	</style>
 
-	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
-	
-	<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/dragdrop/dragdrop-min.js&2.9.0/build/slider/slider-min.js"></script>
-	
+	<script src="https://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+
+	<script type="text/javascript" src="https://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/dragdrop/dragdrop-min.js&2.9.0/build/slider/slider-min.js"></script>
+
   </head>
-  
+
   <body>
 
 	<div id="map"></div>
 	<p>Pixel value: <span id="slider-value">0</span></p>
 	<?php
-	
+
 		require_once ('db_conn.php');
 
 		# Establish db connection
 		$db = pg_connect(pg_connection_string());
-		
+
 		if (!$db) {
-		
+
 			echo "Database connection error...";
-			
+
 			exit;
-			
+
 		} else
 		{
 			echo "Database connection succeeded.";
-			
+
 			echo "Now 'n' Then v. 0.127";
 		}
-		
+
 		$query = "CREATE TABLE IF NOT EXISTS Places (natId bigserial primary key NOT NULL, userName varchar(20) NOT NULL, locationId bigserial, photoNowId bigserial, photoThenId bigserial, lat varchar(50) NOT NULL, lon varchar(50) NOT NULL);";
-			
-		pg_query($db, $query); 
+
+		pg_query($db, $query);
 
 		$result = pg_query($db, "SELECT * FROM Places");
-		 
+
 		echo "<script type=\x22text/javascript\x22>";
-	
+
 		echo "var map = L.map(\x22map\x22).setView([38.85, -77.09], 12);";
-		
+
 		echo "L.tileLayer(\x22http://{s}.tiles.mapbox.com/v3/hollandaise.j48k6kkg/{z}/{x}/{y}.png\x22, {";
 
 		echo "attribution: 'Map data &copy; <a href=\x22http://openstreetmap.org\x22>OpenStreetMap</a> contributors, <a href=\x22http://creativecommons.org/licenses/by-sa/2.0/\x22>CC-BY-SA</a>, Imagery © <a href=\x22http://cloudmade.com\x22>CloudMade</a>[…]',";
-		
+
 		echo "maxZoom: 18";
-		
+
 		echo "}).addTo(map);";
-		
+
 		$x = 1;
 
 		$PHOTO_THRESHOLD = 3;
-		
+
 		while ($row = pg_fetch_row($result))
 		{
 			 $count = count($row);
 			 $y = 0;
-			 
+
 			 while ($y < $count)
 			 {
 				$c_row = current($row);
-				 
+
 				if ($y == 5)
-			
+
 					$lat = $c_row;
-				
+
 				if ($y == 6)
-			
+
 					$lon = $c_row;
-			 
-				next($row); $y = $y + 1; 
+
+				next($row); $y = $y + 1;
 			}
-		 	 
+
 			if (is_numeric($lat) && is_numeric($lon) && $x < $PHOTO_THRESHOLD)
 			{
 				echo "var marker = L.marker([$lat, $lon]).addTo(map);";
-				
+
 				$uid = $x;
-	
+
 				$result2 = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
-	
+
 				$line = pg_fetch_row($result2);
-	
+
 				$img_str = trim($line[1]);
-				
+
 				$result2 = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
-				
+
 				$line = pg_fetch_row($result2);
-				
+
 				$img_str2 = trim($line[1]);
-		
+
 				echo "marker.bindPopup(\x22<h3>Now And Then, #".$x."</h3><div ID='bigdiv' style='width:320px;height:240px' ><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='data:image/jpg;base64,".$img_str."' height='240px' width='300px'></img></li><li><img ID='nowImage12' style='opacity:1' src='data:image/jpg;base64,".$img_str2."' height='240px' width='300px'></img></li></ul></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 			}
 
-			$x = $x + 1;			
-		} 
-		 
+			$x = $x + 1;
+		}
+
 		echo "map.on('popupopen', reslide);";
-		
+
 		echo "map.setView(london, 13).addLayer(osm);";
-		
+
 		echo "</script>";
-				
+
 		pg_free_result($result);
-		
+
 		pg_close($db);
-	
+
 	?>
 		<script type="text/javascript">
-		
+
 			(function() {
-			
+
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,
 					lang  = YAHOO.lang,
-					slider, 
-					bg="slider-bg", thumb="slider-thumb", 
+					slider,
+					bg="slider-bg", thumb="slider-thumb",
 					valuearea="slider-value", textfield="slider-converted-value"
 
 				// The slider can move 0 pixels up
@@ -257,7 +257,7 @@
 
 				Event.onDOMReady(function() {
 
-					slider = YAHOO.widget.Slider.getHorizSlider(bg, 
+					slider = YAHOO.widget.Slider.getHorizSlider(bg,
 									 thumb, topConstraint, bottomConstraint, 0);
 
 					// Sliders with ticks can be animated without YAHOO.util.Anim
@@ -272,17 +272,17 @@
 						var valnode = Dom.get(valuearea);
 						var fld = Dom.get(textfield);
 						var pic = Dom.get("thenImage12");
-						
+
 						valnode.innerHTML = offsetFromStart;
 
 						var actualValue = slider.getRealValue();
-		
+
 						pic.style.opacity = actualValue / bottomConstraint;
-						
+
 						pic = Dom.get("nowImage12");
-						
+
 						pic.style.opacity = 1 - actualValue / bottomConstraint;
-									
+
 						Dom.get(bg).title = "slider value = " + actualValue;
 					});
 
@@ -309,22 +309,22 @@
 							slider.setValue(Math.round(v/scaleFactor));
 						}
 					});
-					
+
 					// Use setValue to reset the value to white:
 					Event.on("putval", "click", function(e) {
 						slider.setValue(100, false); //false here means to animate if possible
 					});
-					
+
 					// Use the "get" method to get the current offset from the slider's start
 					// position in pixels.  By applying the scale factor, we can translate this
 					// into a "real value
 					Event.on("getval", "click", function(e) {
-						YAHOO.log("Current value: "   + slider.getValue() + "\n" + 
-								  "Converted value: " + slider.getRealValue(), "info", "example"); 
+						YAHOO.log("Current value: "   + slider.getValue() + "\n" +
+								  "Converted value: " + slider.getRealValue(), "info", "example");
 					});
 				});
 			})();
-			
+
 	</script>
 
 </html>

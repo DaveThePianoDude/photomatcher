@@ -212,7 +212,7 @@
 
 			if (is_numeric($lat) && is_numeric($lon) && $x < $PHOTO_THRESHOLD)
 			{
-				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon}).addTo(map);";
+
 
 				$uid = $x;
 

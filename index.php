@@ -132,6 +132,16 @@
 
 	<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/dragdrop/dragdrop-min.js&2.9.0/build/slider/slider-min.js"></script>
 
+	<script type="text/javascript">
+			var timeIcon = L.icon({
+			iconUrl: 'time-machine.png',
+
+			iconSize:     [38, 95], // size of the icon
+			iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+			popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+		});
+	</script>
+	
   </head>
 
   <body>
@@ -202,7 +212,7 @@
 
 			if (is_numeric($lat) && is_numeric($lon) && $x < $PHOTO_THRESHOLD)
 			{
-				echo "var marker = L.marker([$lat, $lon]).addTo(map);";
+				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon}).addTo(map);";
 
 				$uid = $x;
 

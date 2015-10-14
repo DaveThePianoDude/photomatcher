@@ -133,7 +133,7 @@
 	<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/dragdrop/dragdrop-min.js&2.9.0/build/slider/slider-min.js"></script>
 
 	<script type="text/javascript">
-		var myIcon = L.icon({
+		var timeIcon = L.icon({
 			iconUrl: 'assets/Leaflet/dist/images/time-machine.png',
 			iconRetinaUrl: 'assets/Leaflet/dist/images/time-machine@2x.png',
 			iconSize: [57, 57],

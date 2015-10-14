@@ -134,8 +134,8 @@
 
 	<script type="text/javascript">
 		var timeIcon = L.icon({
-			iconUrl: 'assets/Leaflet/dist/images/time-machine.png',
-			iconRetinaUrl: 'assets/Leaflet/dist/images/time-machine@2x.png',
+			iconUrl: '~/assets/Leaflet/dist/images/time-machine.png',
+			iconRetinaUrl: '~/assets/Leaflet/dist/images/time-machine@2x.png',
 			iconSize: [57, 57],
 			iconAnchor: [28, 28],
 			popupAnchor: [-3, -28]

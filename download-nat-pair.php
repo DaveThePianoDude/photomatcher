@@ -29,7 +29,7 @@
 
 		echo $_SERVER[REQUEST_URI];
 		
-		$uid = '1';
+		$uid = $_GET['ID'];
 		
 		$places_result = pg_query($db, "SELECT * FROM Places WHERE natId = '$uid'");
 		$places_line = pg_fetch_row($places_result);

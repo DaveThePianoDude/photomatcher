@@ -14,8 +14,9 @@
 				console.log(e.popup._source.options.natId);
 				
 				var natId = e.popup._source.options.natId;
+				var baseUrl = "download-nat-pair.php?ID=";
 				
-				$.get("download-nat-pair.php?ID=3");
+				$.get(baseUrl.concat(natId));
 
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,

@@ -29,22 +29,17 @@
 				var natId = e.popup._source.options.natId;
 				var baseUrl = "download-nat-pair.php?ID=";
 
+				$("#spinner").show();
+				
 				$.ajax({
 					 async: false,
 					 type: 'GET',
 					 url: baseUrl.concat(natId),
 					 success: function(data) {
 						  //callback
-						  console.log('Done writing to server now and then image#'+natId);
+						  console.log('Done writing to server now and then image pair#'+natId);
+						  $("#spinner").hide();
 					 }
-				});
-
-				$("#spinner").bind("ajaxSend", function() {
-					$(this).show();
-				}).bind("ajaxStop", function() {
-					$(this).hide();
-				}).bind("ajaxError", function() {
-					$(this).hide();
 				});
 				
 				var Event = YAHOO.util.Event,

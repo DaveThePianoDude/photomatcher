@@ -11,7 +11,7 @@
 
 		function prepslides(e) {
 			
-				console.log(e.popup._source._options._natId);
+				console.log(e.popup._source.options);
 
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,

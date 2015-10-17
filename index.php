@@ -174,9 +174,12 @@
 
   <body>
   
-	<div id='spinner' class='spinner' style='display:none;'><img id='img-spinner' src='assets/images/spinner.gif' alt='Loading'/></div>
-  
-	<div id="map"></div>
+	
+	<div id="map">
+	
+		<div id='spinner' class='spinner' style='display:none;'><img id='img-spinner' src='assets/images/spinner.gif' alt='Loading'/></div>
+  	
+	</div>
 	
 	<p>Pixel value: <span id="slider-value">0</span></p>
 	
@@ -265,8 +268,6 @@
 		pg_close($db);
 
 	?>
-	
-	
 	
 		<script type="text/javascript">
 

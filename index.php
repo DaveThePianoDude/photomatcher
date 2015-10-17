@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ruby on Rails: Welcome aboard</title>
+    <title>Now and Then Photo Matcher</title>
 
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
 
@@ -13,15 +13,14 @@
 			
 				var natId = e.popup._source.options.natId;
 				var baseUrl = "download-nat-pair.php?ID=";
-				
-				//$.get(baseUrl.concat(natId));
-				
+			
 				$.ajax({
 					 async: false,
 					 type: 'GET',
 					 url: baseUrl.concat(natId),
 					 success: function(data) {
 						  //callback
+						  console.log('Done writing to server now and then image#'+natId);
 					 }
 				});
 

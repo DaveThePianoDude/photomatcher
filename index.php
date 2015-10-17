@@ -146,19 +146,6 @@
 	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 
 	<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/dragdrop/dragdrop-min.js&2.9.0/build/slider/slider-min.js"></script>
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#spinner").bind("ajaxSend", function() {
-				$(this).show();
-			}).bind("ajaxStop", function() {
-				$(this).hide();
-			}).bind("ajaxError", function() {
-				$(this).hide();
-			});
-		 
-			 });
-	</script>
 	
 	<script type="text/javascript">
 		var timeIcon = L.icon({

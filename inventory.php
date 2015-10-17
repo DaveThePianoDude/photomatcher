@@ -30,7 +30,7 @@
 
 		$uid = '1';
 		
-		$nowCount = '40';
+		$nowCount = '47';
 		
 		while ($uid < $nowCount)
 		{	

@@ -15,7 +15,7 @@
 				
 				var natId = e.popup._source.options.natId;
 				
-				$.get("download-nat-pair.php?ID="+natId);
+				$.get("download-nat-pair.php?ID=3");
 
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,

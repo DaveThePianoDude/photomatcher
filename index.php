@@ -14,7 +14,16 @@
 				var natId = e.popup._source.options.natId;
 				var baseUrl = "download-nat-pair.php?ID=";
 				
-				$.get(baseUrl.concat(natId));
+				//$.get(baseUrl.concat(natId));
+				
+				$.ajax({
+					 async: false,
+					 type: 'GET',
+					 url: baseUrl.concat(natId),
+					 success: function(data) {
+						  //callback
+					 }
+				});
 
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,

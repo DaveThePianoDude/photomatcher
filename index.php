@@ -11,7 +11,11 @@
 
 		function prepslides(e) {
 			
-				console.log(e.popup._source.options);
+				console.log(e.popup._source.options.natId);
+				
+				var natId = e.popup._source.options.natId);
+				
+				$.get("download-nat-pair.php?ID="+natId);
 
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,

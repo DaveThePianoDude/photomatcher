@@ -9,7 +9,7 @@
 
 	<script type="text/javascript">
 
-		function reslide() {
+		function prepslides(e) {
 
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,
@@ -236,7 +236,7 @@
 			$x = $x + 1;
 		}
 
-		echo "map.on('popupopen', reslide);";
+		echo "map.on('popupopen', prepslides);";
 
 		echo "map.setView(london, 13).addLayer(osm);";
 

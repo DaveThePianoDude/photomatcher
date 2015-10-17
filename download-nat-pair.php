@@ -7,6 +7,10 @@
 
 	<?php
 	
+		// Download-Nat-Pair.  10/17/2015
+		// Purpose: Downloads to the server a single pair of Now-And-Then photos.
+		// Author: David A. Holland
+	
 		require_once ('db_conn.php');
 
 		# Establish db connection
@@ -26,8 +30,6 @@
 		}
 		
 		echo "<h3>Downloading Now and Then Pair:</h3>";
-
-		echo $_SERVER[REQUEST_URI];
 		
 		$uid = $_GET['ID'];
 		
@@ -68,9 +70,7 @@
 		
 		echo '<img src="thenimage'.$uid.'.jpg"/>';
 		
-		pg_free_result($then_result);
-		$uid = $uid + 1;
-		
+		pg_free_result($then_result);		
 		pg_close($db);
 	
 	?>

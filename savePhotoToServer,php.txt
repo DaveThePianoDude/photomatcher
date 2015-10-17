@@ -1,0 +1,9 @@
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+function doSomething() {
+    $.get("somepage.php");
+    return false;
+}
+</script>
+
+<a href="#" onclick="doSomething();">Click Me!</a>

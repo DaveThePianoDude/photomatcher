@@ -30,38 +30,42 @@
 
 		$uid = '1';
 		
-		$result = pg_query($db, "SELECT * FROM NOW_PHOTOS");
+		$nowCount = pg_query($db, "SELECT COUNT(*) FROM NOW_PHOTOS");
 		
-		while ($line = pg_fetch_row($result))
+		while ($uid < $nowCount)
 		{	
-			$img_str = trim($line[1]);
+			$places_result = pg_query($db, "SELECT * FROM Places WHERE natId = '$uid'");
 			
-			$inner_result = pg_query($db, "SELECT * FROM Places WHERE natId = '$uid'");
+			$places_line = pg_fetch_row($places_result);
 			
-			$inner_line = pg_fetch_row($inner_result);
-			
-			$natId = trim($inner_line[0]);
-			$lat = trim($inner_line[5]);
-			$lon = trim($inner_line[6]);
+			$natId = trim($places_line[0]);
+			$lat = trim($places_line[5]);
+			$lon = trim($places_line[6]);
 			
 			echo 'NAT ID: '.$natId.' ... LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
 			
+			$now_result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
+			
+			$now_line = pg_fetch_row($now_result);
+			
+			$img_str = trim($now_line[1]);
+			
 			echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
 			
-			$inner_result = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
+			pg_free_result($now_result);
 			
-			$inner_line = pg_fetch_row($inner_result);
+			$then_result = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
 			
-			$img_str = trim($inner_line[1]);
+			$then_line = pg_fetch_row($then_result);
+			
+			$img_str = trim($then_line[1]);
 			
 			echo '<img src="data:image/jpg;base64,'.$img_str.'"/><br>';
 				
-			pg_free_result($inner_result);
+			pg_free_result($then_result);
 		
 			$uid = $uid + 1;
 		}
-
-		pg_free_result($result);
 		
 		pg_close($db);
 	

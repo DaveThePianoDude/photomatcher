@@ -50,7 +50,11 @@
 			
 			$img_str = trim($now_line[1]);
 			
-			echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
+			file_put_contents("nowimage$uid.png", file_get_contents($img_str));
+			
+			//echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
+			
+			echo '<img src="nowimage'.$uid.'.png"/>';
 			
 			pg_free_result($now_result);
 			

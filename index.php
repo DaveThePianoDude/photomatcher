@@ -10,6 +10,8 @@
 	<script type="text/javascript">
 
 		function prepslides(e) {
+			
+				console.log(e.popup._source);
 
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,

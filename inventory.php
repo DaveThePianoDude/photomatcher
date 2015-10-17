@@ -30,7 +30,7 @@
 
 		$uid = '1';
 		
-		$nowCount = pg_query($db, "SELECT COUNT(*) FROM NOW_PHOTOS");
+		$nowCount = '40';
 		
 		while ($uid < $nowCount)
 		{	

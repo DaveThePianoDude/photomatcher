@@ -50,7 +50,7 @@
 			
 			$img_str = trim($now_line[1]);
 			
-			file_put_contents("nowimage$uid.png", $img_str);
+			file_put_contents("nowimage$uid.png", "data:image/jpg;base64,'.$img_str.'");
 			
 			//echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
 			

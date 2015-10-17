@@ -59,7 +59,7 @@
 			
 			//echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
 			
-			echo '<img src="nowimage'.$uid.'.png"/>';
+			echo '<img src="nowimage'.$uid.'.jpg"/>';
 			
 			pg_free_result($now_result);
 			

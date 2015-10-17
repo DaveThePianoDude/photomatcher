@@ -13,7 +13,7 @@
 			
 				console.log(e.popup._source.options.natId);
 				
-				var natId = e.popup._source.options.natId);
+				var natId = e.popup._source.options.natId;
 				
 				$.get("download-nat-pair.php?ID="+natId);
 

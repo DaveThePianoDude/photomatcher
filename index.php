@@ -11,7 +11,7 @@
 
 		function prepslides(e) {
 			
-				console.log(e.popup._source);
+				console.log(e.popup._source._options._natId);
 
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,
@@ -216,7 +216,7 @@
 			{
 				$uid = $x;
 				
-				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon, natID:".$uid." }).addTo(map);";
+				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon, natId:".$uid." }).addTo(map);";
 
 				$result2 = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
 

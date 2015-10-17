@@ -174,7 +174,7 @@
 
   <body>
   
-	<div id='spinner' class='spinner' style='display:none;'><img id='img-spinner' src='ajax-loader.gif' alt='Loading'/></div>
+	<div id='spinner' class='spinner' style='display:none;'><img id='img-spinner' src='assets/images/spinner.gif' alt='Loading'/></div>
   
 	<div id="map"></div>
 	

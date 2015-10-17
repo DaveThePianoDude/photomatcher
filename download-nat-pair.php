@@ -25,9 +25,9 @@
 			echo "Now 'n' Then v. 0.127";			
 		}
 		
-		echo "<h3>Photo Inventory:</h3>";
+		echo "<h3>Downloading Now and Then Pair:</h3>";
 
-		echo $_SERVER['QUERY_STRING'];
+		echo $_SERVER[REQUEST_URI];
 		
 		$uid = '1';
 		

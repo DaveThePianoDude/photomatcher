@@ -22,6 +22,10 @@
 		 });
 	</script>
 	
+		
+		<div id='spinner' class='spinner' style='display:none;'><img id='img-spinner' src='assets/images/spinner.gif' alt='Loading'/></div>
+  	
+	
 	<script type="text/javascript">
 
 		function prepslides(e) {
@@ -179,9 +183,7 @@
   
 	
 	<div id="map">
-	
-		<div id='spinner' class='spinner' style='display:none;'><img id='img-spinner' src='assets/images/spinner.gif' alt='Loading'/></div>
-  	
+
 	</div>
 	
 	<p>Pixel value: <span id="slider-value">0</span></p>

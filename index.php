@@ -188,7 +188,7 @@
 
 		$x = 1;
 
-		$PHOTO_THRESHOLD = 3;
+		$PHOTO_THRESHOLD = 40;
 
 		while ($row = pg_fetch_row($result))
 		{
@@ -228,7 +228,9 @@
 
 				$img_str2 = trim($line[1]);
 
-				echo "marker.bindPopup(\x22<h3>Now And Then, #".$x."</h3><div ID='bigdiv' style='width:320px;height:240px' ><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='data:image/jpg;base64,".$img_str."' height='240px' width='300px'></img></li><li><img ID='nowImage12' style='opacity:1' src='data:image/jpg;base64,".$img_str2."' height='240px' width='300px'></img></li></ul></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+				echo "marker.bindPopup(\x22<h3>Now And Then, #".$x."</h3><div ID='bigdiv' style='width:320px;height:240px' ><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='assets/images/image1.png' height='240px' width='300px'></img></li><li><img ID='nowImage12' style='opacity:1' src='assets/images/image2.png' height='240px' width='300px'></img></li></ul></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+				
+//				echo "marker.bindPopup(\x22<h3>Now And Then, #".$x."</h3><div ID='bigdiv' style='width:320px;height:240px' ><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='data:image/jpg;base64,".$img_str."' height='240px' width='300px'></img></li><li><img ID='nowImage12' style='opacity:1' src='data:image/jpg;base64,".$img_str2."' height='240px' width='300px'></img></li></ul></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 			}
 
 			$x = $x + 1;

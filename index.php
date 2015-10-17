@@ -11,8 +11,6 @@
 
 		function prepslides(e) {
 			
-				console.log(e.popup._source.options.natId);
-				
 				var natId = e.popup._source.options.natId;
 				var baseUrl = "download-nat-pair.php?ID=";
 				
@@ -223,19 +221,7 @@
 				
 				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon, natId:".$uid." }).addTo(map);";
 
-				$result2 = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
-
-				$line = pg_fetch_row($result2);
-
-				$img_str = trim($line[1]);
-
-				$result2 = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
-
-				$line = pg_fetch_row($result2);
-
-				$img_str2 = trim($line[1]);
-
-				echo "marker.bindPopup(\x22<h3>Now And Then, #".$x."</h3><div ID='bigdiv' style='width:320px;height:240px' ><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='assets/images/image1.png' height='240px' width='300px'></img></li><li><img ID='nowImage12' style='opacity:1' src='assets/images/image2.png' height='240px' width='300px'></img></li></ul></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+				echo "marker.bindPopup(\x22<h3>Now And Then, #".$uid."</h3><div ID='bigdiv' style='width:320px;height:240px' ><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='thenimage".$uid.".jpg' height='240px' width='300px'></img></li><li><img ID='nowImage12' style='opacity:1' src='nowimage".$uid.".jpg' height='240px' width='300px'></img></li></ul></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 			}
 
 			$x = $x + 1;

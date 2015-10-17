@@ -12,8 +12,10 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$("#spinner").bind("ajaxSend", function() {
+			console.log('ajax send');
 			$(this).show();
 		}).bind("ajaxStop", function() {
+			console.log('ajax stop');
 			$(this).hide();
 		}).bind("ajaxError", function() {
 			$(this).hide();
@@ -21,10 +23,6 @@
 	 
 		 });
 	</script>
-	
-		
-		<div id='spinner' class='spinner' style='display:none;'><img id='img-spinner' src='assets/images/spinner.gif' alt='Loading'/></div>
-  	
 	
 	<script type="text/javascript">
 
@@ -181,6 +179,7 @@
 
   <body>
   
+  	<div id='spinner' class='spinner' style='display:none;'><img id='img-spinner' src='assets/images/spinner.gif' alt='Loading'/></div>
 	
 	<div id="map">
 

@@ -57,8 +57,6 @@
 				)
 			);
 			
-			//echo '<img src="data:image/jpg;base64,'.$img_str.'"/>';
-			
 			echo '<img src="nowimage'.$uid.'.jpg"/>';
 			
 			pg_free_result($now_result);
@@ -69,7 +67,14 @@
 			
 			$img_str = trim($then_line[1]);
 			
-			echo '<img src="data:image/jpg;base64,'.$img_str.'"/><br>';
+			file_put_contents(
+				"thenimage$uid.jpg", 
+				base64_decode(
+					str_replace("data:image/jpg;base64", "", $img_str)
+				)
+			);
+			
+			echo '<img src="thenimage'.$uid.'.jpg"/>';
 				
 			pg_free_result($then_result);
 		

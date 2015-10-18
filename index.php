@@ -13,6 +13,7 @@
 	$(document).ready(function(){
 		$("#spinner").bind("ajaxSend", function() {
 			console.log('ajax send');
+			alert ($(this));
 			$(this).show();
 		}).bind("ajaxStop", function() {
 			console.log('ajax stop');

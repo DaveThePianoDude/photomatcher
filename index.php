@@ -30,9 +30,7 @@
 
 				var natId = e.popup._source.options.natId;
 				var baseUrl = "download-nat-pair.php?ID=";
-				var spinnerId = "#spinner" + natId;
-				
-				$(spinnerId).show();
+				var spinnerId = "#spinner" + natId;		
 				
 				$.ajax({
 					 async: false,
@@ -41,7 +39,6 @@
 					 success: function(data) {
 						  //callback
 						  console.log('Done writing to server now and then image pair#'+natId);
-						  $(spinnerId).hide();
 					 }
 				});
 				

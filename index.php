@@ -40,6 +40,7 @@
 					 success: function(data) {
 						  //callback
 						  console.log('Done writing to server now and then image pair#'+natId);
+						  $(natpairId).hide();
 					 }
 				});
 				

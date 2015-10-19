@@ -249,7 +249,7 @@
 
 				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon, natId:".$uid." }).addTo(map);";
 
-				echo "marker.bindPopup(\x22<h3>Now And Then, #".$uid."</h3><div ID='bigdiv' style='width:320px;height:240px' ><div id='spinner".$uid."' class='spinner'><img id='img-spinner".$uid."' src='assets/images/spinner.gif' alt='Loading'/><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='thenimage".$uid.".jpg' height='240px' width='300px'></img></li><li><img ID='nowImage12' style='opacity:1' src='nowimage".$uid.".jpg' height='240px' width='300px'></img></li></ul></div></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+				echo "marker.bindPopup(\x22<h3>Now And Then, #".$uid."</h3><div ID='bigdiv' style='width:320px;height:240px' ><div id='spinner".$uid."' class='spinner'><img id='img-spinner".$uid."' src='assets/images/spinner.gif' alt='Loading'/><div id='natpair".$uid."'><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='thenimage".$uid.".jpg' height='240px' width='300px'></img></li><li><img ID='nowImage12' style='opacity:1' src='nowimage".$uid.".jpg' height='240px' width='300px'></img></li></ul></div></div></div><div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'><div id='slider-thumb' class='yui-slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 			}
 
 			$x = $x + 1;

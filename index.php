@@ -156,9 +156,7 @@
 			-o-background-size: cover;
 			background-size: cover;
 		}
-		#slider-thumb {
-			left: 0;
-		}
+
 	</style>
 
 	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>

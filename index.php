@@ -40,7 +40,7 @@
 					 success: function(data) {
 						  //callback
 						  console.log('Done writing to server now and then image pair#'+natId);
-						  setTimeout(function(){$(natpairId).show();});
+						  setTimeout(function(){$(natpairId).show();},1000);
 					 }
 				});
 				

@@ -13,12 +13,12 @@
 	$(document).ready(function(){
 		$("#spinner").bind("ajaxSend", function() {
 			console.log('ajax send');
-			$(this).show();
+			///$(this).show();
 		}).bind("ajaxStop", function() {
 			console.log('ajax stop');
-			$(this).hide();
+			//$(this).hide();
 		}).bind("ajaxError", function() {
-			$(this).hide();
+			//$(this).hide();
 		});
 	 
 		 });

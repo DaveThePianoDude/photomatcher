@@ -180,6 +180,8 @@
 
   <body>
   
+	<div id="map"></div>
+  
 	<p>Pixel value: <span id="slider-value">0</span></p>
 	
 	<?php

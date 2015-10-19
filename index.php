@@ -33,8 +33,6 @@
 				var spinnerId = "#spinner" + natId;
 				var natpairId = "#natpair" + natId;
 				
-				$(natpairId).hide();
-				
 				$.ajax({
 					 async: false,
 					 type: 'GET',
@@ -42,8 +40,6 @@
 					 success: function(data) {
 						  //callback
 						  console.log('Done writing to server now and then image pair#'+natId);
-						  $(spinnerId).hide();
-						  $(natpairId).show();
 					 }
 				});
 				

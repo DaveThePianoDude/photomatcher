@@ -177,6 +177,7 @@
 
   <body>
 
+	<div id='slider-bg' class='yui-h-slider' tabindex='-1' title='Slider'>
 	<div id='slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div>
 
 	<p>Pixel value: <span id="slider-value">0</span></p>

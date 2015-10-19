@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
 
 	<link rel="stylesheet" type="text/css" href="assets/css/nat.css">
-	
+
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 
 	<script type="text/javascript">
@@ -20,10 +20,10 @@
 		}).bind("ajaxError", function() {
 			//$(this).hide();
 		});
-	 
+
 	});
 	</script>
-	
+
 	<script type="text/javascript">
 
 		function prepslides(e) {
@@ -32,7 +32,7 @@
 				var baseUrl = "download-nat-pair.php?ID=";
 				var spinnerId = "#spinner" + natId;
 				var natpairId = "#natpair" + natId;
-				
+
 				$.ajax({
 					 async: false,
 					 type: 'GET',
@@ -43,7 +43,7 @@
 						  setTimeout(function(){$(natpairId).show();$(spinnerId).hide();},500);
 					 }
 				});
-				
+
 				var Event = YAHOO.util.Event,
 					Dom   = YAHOO.util.Dom,
 					lang  = YAHOO.lang,
@@ -147,7 +147,7 @@
 
 	<style type="text/css">
 
-		#slider { width: 15px; height:300px; }
+		#slider { width: 15px; height:30px; }
 
 		#slider-bg {
 			background:url(http://yui.yahooapis.com/2.9.0/build/slider/assets/bg-fader.gif) 5px 0 no-repeat;
@@ -164,7 +164,7 @@
 	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 
 	<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/dragdrop/dragdrop-min.js&2.9.0/build/slider/slider-min.js"></script>
-	
+
 	<script type="text/javascript">
 		var timeIcon = L.icon({
 			iconUrl: 'assets/Leaflet/dist/images/time-machine.png',
@@ -178,11 +178,11 @@
   </head>
 
   <body>
-  
+
 	<div id="map"></div>
-  
+
 	<p>Pixel value: <span id="slider-value">0</span></p>
-	
+
 	<?php
 
 		require_once ('db_conn.php');
@@ -268,7 +268,7 @@
 		pg_close($db);
 
 	?>
-	
+
 		<script type="text/javascript">
 
 			(function() {

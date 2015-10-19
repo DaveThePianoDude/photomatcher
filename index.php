@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Now and Then Photo Matcher</title>
+    <title>Now and Then Photo Matcher!!!</title>
 
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
 
@@ -180,12 +180,9 @@
 
   <body>
   
-  	<div id='spinner' class='spinner' style='display:none;'><img id='img-spinner' src='assets/images/spinner.gif' alt='Loading'/></div>
+  	<div id='spinner' class='spinner'><img id='img-spinner' src='assets/images/spinner.gif' alt='Loading'/></div>
 	
-	<div id="map">
 
-	</div>
-	
 	<p>Pixel value: <span id="slider-value">0</span></p>
 	
 	<?php

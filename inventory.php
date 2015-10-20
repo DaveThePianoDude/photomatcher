@@ -80,7 +80,7 @@
 
 			$description = 'This is a description.';
 
-			pg_query($db, "UPDATE PLACES SET (DESCRIPTION) = ('$description') WHERE natid = '$uid'");
+			pg_query($db, "UPDATE PLACES SET description = '$description' WHERE natid = '$uid'");
 
 			$uid = $uid + 1;
 		}

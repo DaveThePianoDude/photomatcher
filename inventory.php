@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 </head>
 
 <body>
+
+	<input type='hidden' name='descriptext' value='blah'/>
 
 	<?php
 
@@ -78,7 +80,7 @@
 
 			pg_free_result($then_result);
 
-			$description = 'This is a description.';
+			$description = $_GET['descriptext'];
 
 			pg_query($db, "UPDATE PLACES SET description = '$description' WHERE natid = '$uid'");
 

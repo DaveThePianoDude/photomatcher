@@ -16,9 +16,10 @@
 			 async: false,
 			 type: 'GET',
 			 url: baseUrl.concat(serverKey),
-			 success: function(data) {
+			 success: function(response) {
 				  //callback
-				  console.log(data);
+				  var json_obj = $.parseJSON(response);
+				  console.log(json_obj[0]);
 			 }
 		});
 

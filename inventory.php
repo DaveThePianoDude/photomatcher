@@ -76,7 +76,7 @@
 
 			echo '<img src="thenimage'.$uid.'.jpg"/>';
 
-			pg_query($db, "UPDATE PLACES SET (DESCRIPTION) = ('TEST') WHERE natid = '$uid'");
+			pg_query($db, "UPDATE PLACES SET (username) = ('TEST') WHERE natid = '$uid'");
 
 			pg_free_result($then_result);
 

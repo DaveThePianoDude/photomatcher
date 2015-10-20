@@ -177,7 +177,7 @@
 
   <body>
 
-	<div id="map>
+	<div id="map"/>
 
 	<p>Pixel value: <span id="slider-value">0</span></p>
 

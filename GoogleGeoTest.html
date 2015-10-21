@@ -16,10 +16,11 @@
 			 async: false,
 			 type: 'GET',
 			 url: baseUrl.concat(serverKey),
-			 success: function(response) {
+			 dataType: 'application/json; charset=utf-8',
+			 success: function(data) {
 				  //callback
-				  var json_obj = $.parseJSON(response);
-				  console.log(json_obj[0]);
+				  var json_obj = $.parseJSON(data);
+				  console.log(json_obj.results[0].address_components[3].long_name);// works!
 			 }
 		});
 

@@ -32,7 +32,13 @@
 
 		$uid = '1';
 
-		$nowCount = '1';
+		$nowCount = pg_query($db, "SELECT COUNT(*) FROM PHOTOMATCHER.now");
+
+		$count_result = pg_fetch_row($nowCount);
+
+		$count = $count_result[0];
+
+		echo 'Number of Place Records:'.$count.'.';
 
 		while ($uid < $nowCount)
 		{

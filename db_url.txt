@@ -1,0 +1,1 @@
+DATABASE_URL=postgres://prcmkraanrzouw:Mds2OFCgOzsnDyxo7MPHGr53-V@ec2-54-225-194-162.compute-1.amazonaws.com:5432/d6e04pmu66ca19

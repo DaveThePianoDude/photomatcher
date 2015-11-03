@@ -32,17 +32,17 @@
 
 		$uid = '1';
 
-		$nowCount = '47';
+		$nowCount = '1';
 
 		while ($uid < $nowCount)
 		{
-			$places_result = pg_query($db, "SELECT * FROM Places WHERE natId = '$uid'");
+			$places_result = pg_query($db, "SELECT * FROM PLACES WHERE ID = '$uid'");
 
 			$places_line = pg_fetch_row($places_result);
 
-			$natId = trim($places_line[0]);
-			$lat = trim($places_line[5]);
-			$lon = trim($places_line[6]);
+			$natId = trim($places_line[3]);
+			$lat = trim($places_line[0]);
+			$lon = trim($places_line[1]);
 
 			echo 'NAT ID: '.$natId.' ... LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
 

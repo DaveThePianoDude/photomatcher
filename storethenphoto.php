@@ -2,8 +2,7 @@
 
 	require_once ('db_conn.php');
 
-	if (isset($_FILES['uploadedfile']))
-	{
+
 		# Establish db connection
 		$db = pg_connect(pg_connection_string());
 
@@ -16,10 +15,6 @@
 		pg_close($db);
 
 		//echo base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
-	}
-	else
-	{
-		echo 'FILE DOES NOT EXIST';
-	}
+
 
 ?>

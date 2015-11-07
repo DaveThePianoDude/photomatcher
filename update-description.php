@@ -22,7 +22,7 @@
 	if ($response['status']=='OK')
 	{
 		echo 'got here too';
-		$j = $response['results'];
+		$j = $response['results'][0].address_components[3].long_name;
 		echo $j;
 	}
 

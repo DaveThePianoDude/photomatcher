@@ -9,10 +9,9 @@
 		$db = pg_connect(pg_connection_string());
 
 		$uid = UUID::v4();
-		//$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
+		$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 
-		//$query = "INSERT INTO PHOTOS(id, data) Values('$uid', '$data')";
-		$query = "INSERT INTO PHOTOS(id) Values('$uid')";
+		$query = "INSERT INTO PHOTOS(id, data) Values('$uid', '$data')";
 
 		pg_query($db, $query);
 		pg_close($db);

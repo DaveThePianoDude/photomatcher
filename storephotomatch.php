@@ -37,7 +37,7 @@
 
 	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.",".$lon."&key=".$key;
 
-	$description = "???";
+	$description = 'test';
 	$response_json = file_get_contents($url);
 	$response = json_decode($response_json, true);
 
@@ -46,6 +46,8 @@
 		$description = $response['results'][0]['address_components'][3]['long_name'];
 		echo $description;
 	}
+	
+	echo 'starting to insert.';
 
 	$query = "INSERT INTO photomatcher.PLACES(id,lat,lon,now_photo,then_photo,description) Values('$uuid','$lat','$lon','$now_photo','$then_photo','test')";
 	pg_query($db, $query);

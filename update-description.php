@@ -16,12 +16,10 @@
 
 	$response = file_get_contents($url);
 
-	if($response['status']=='OK'){
+	echo 'got here';
 
-		echo 'got here';
+	$j = $response['results'];
 
-		$j = $response['results'];
+	echo $j;
 
-		echo $j;
-	}
 ?>

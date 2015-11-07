@@ -34,7 +34,7 @@
 	$line = pg_fetch_row($result);
 	$key = trim($line[0]);
 
-	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.","/$lon/"&key=".$key;
+	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.",".$lon."&key=".$key;
 
 	$response_json = file_get_contents($url);
 	$response = json_decode($response_json, true);

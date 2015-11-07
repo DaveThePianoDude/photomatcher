@@ -32,7 +32,7 @@
 	pg_close($db);
 
 	$line = pg_fetch_row($result);
-	$key = trim($line[0]);
+	$key = trim($line[2]);
 
 	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.",".$lon."&key=".$key;
 

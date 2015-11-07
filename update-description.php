@@ -15,7 +15,7 @@
 	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=".$key;
 
 	$response = file_get_contents($url);
+	$response = json_decode($response);
 
-	echo $response;
-
+	echo $response[0].address_components[3].long_name;
 ?>

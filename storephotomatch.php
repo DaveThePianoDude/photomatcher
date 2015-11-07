@@ -29,16 +29,14 @@
 	echo 'Processing description...';
 	
 	// description
-	$query = "SELECT * FROM photomatcher.SETTINGS(value) WHERE name = 'google_api'";
+	$query = "SELECT value FROM photomatcher.SETTINGS WHERE name = 'google_api'";
 	$result = pg_query($db, $query);
 
 	$line = pg_fetch_row($result);
-	$key = trim($line[2]);
+	$key = trim($line[0]);
 
 	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.",".$lon."&key=".$key;
 
-	echo $key;
-	
 	echo $url;
 
 	$query = "INSERT INTO photomatcher.PLACES(id,lat,lon,now_photo,then_photo,description) Values('$uuid','$lat','$lon','$now_photo','$then_photo','$description')";

@@ -6,9 +6,8 @@
 	# Establish db connection
 	$db = pg_connect(pg_connection_string());
 
-	$query = "SELECT * FROM photomatcher.SETTINGS(value) WHERE name = 'google_api'";
+	$query = "SELECT value FROM photomatcher.SETTINGS WHERE name = 'google_api'";
 	$result = pg_query($db, $query);
-	pg_close($db);
 
 	$line = pg_fetch_row($result);
 	$key = trim($line[0]);
@@ -25,5 +24,5 @@
 		$j = $response['results'][0]['address_components'][3]['long_name'];
 		echo $j;
 	}
-
+	pg_close($db);
 ?>

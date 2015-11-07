@@ -13,6 +13,8 @@
 	$line = pg_fetch_row($result);
 	$key = trim($line[0]);
 
+	echo "key=".$key;
+	
 	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=".$key;
 
 	$response_json = file_get_contents($url);

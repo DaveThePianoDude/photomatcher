@@ -1,4 +1,5 @@
 <?php
+	// demo page for use of google geocache api
 
 	require_once ('db_conn.php');
 
@@ -17,11 +18,8 @@
 	$response_json = file_get_contents($url);
 	$response = json_decode($response_json, true);
 
-	echo 'got here';
-
 	if ($response['status']=='OK')
 	{
-		echo 'got here too';
 		$j = $response['results'][0]['address_components'][3]['long_name'];
 		echo $j;
 	}

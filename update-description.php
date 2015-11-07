@@ -16,9 +16,10 @@
 
 	$response = file_get_contents($url);
 
-	echo 'got here';
+	if($resp['status']=='OK'){
 
-	$j = json_decode($response);
+		$j = $response['results'][0].address_components[3].long_name;
 
-	echo $j;
+		echo $j;
+	}
 ?>

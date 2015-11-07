@@ -18,6 +18,8 @@
 
 	if($response['status']=='OK'){
 
+		echo 'got here';
+
 		$j = $response['results'];
 
 		echo $j;

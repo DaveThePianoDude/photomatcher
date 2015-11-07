@@ -29,7 +29,8 @@
 	// description
 	$query = "SELECT * FROM photomatcher.SETTINGS(value) WHERE name = 'google_api'";
 	$result = pg_query($db, $query);
-	
+	pg_close($db);
+
 	$line = pg_fetch_row($result);
 	$key = trim($line[0]);
 

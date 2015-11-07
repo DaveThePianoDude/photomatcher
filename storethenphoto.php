@@ -16,7 +16,7 @@
 		pg_query($db, $query);
 		pg_close($db);
 
-		echo base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
+		//echo base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 	}
 	else
 	{

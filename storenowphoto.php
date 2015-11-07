@@ -11,12 +11,12 @@
 		$uid = UUID::v4();
 		//$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 
-		$query = "INSERT INTO PHOTOS(id, data) Values('$uid')";
+		$query = "INSERT INTO PHOTOS(id) Values('$uid')";
 
 		pg_query($db, $query);
 		pg_close($db);
 
-		echo base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
+		//echo base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 	}
 	else
 	{

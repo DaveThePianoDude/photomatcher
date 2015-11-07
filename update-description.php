@@ -16,6 +16,8 @@
 
 	$response = file_get_contents($url);
 
+	echo 'got here';
+
 	$j = json_decode($response);
 
 	echo $j;

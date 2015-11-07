@@ -17,5 +17,5 @@
 	$response = file_get_contents($url);
 	$response = json_decode($response);
 
-	echo $response[0].address_components[3].long_name;
+	echo $response;
 ?>

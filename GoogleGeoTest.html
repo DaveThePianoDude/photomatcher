@@ -20,7 +20,8 @@
 			 success: function(data) {
 				  //callback
 				  var json_obj = $.parseJSON(data);
-				  console.log(json_obj.results[0].address_components[3].long_name);// works!
+				  console.log(json_obj);
+				  //console.log(json_obj.results[0].address_components[3].long_name);// works!
 			 }
 		});
 

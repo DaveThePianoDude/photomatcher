@@ -16,7 +16,7 @@
 
 	$response = file_get_contents($url);
 
-	if($resp['status']=='OK'){
+	if($response['status']=='OK'){
 
 		$j = $response['results'][0].address_components[3].long_name;
 

@@ -32,8 +32,10 @@
 
 	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyD2BdERFJ1vsTqKahMIvCw2Lzjmgwsk438";
 
+	echo 'GOT HERE';
+
 	$response = file_get_contents($url);
-	$response = json_decode($response);
+
 	echo $response;
 
 ?>

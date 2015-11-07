@@ -43,7 +43,7 @@
 
 	if ($response['status']=='OK')
 	{
-		$description = $response['results'][0]['address_components'][3]['long_name'];
+		$description = $response['results'][0]['address_components'][2]['long_name'];
 		echo $description;
 	}
 

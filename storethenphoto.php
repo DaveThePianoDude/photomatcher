@@ -9,9 +9,9 @@
 		$db = pg_connect(pg_connection_string());
 
 		$uuid = UUID::v4();
-		//$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
+		$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 
-		$query = "INSERT INTO PHOTOS(id) Values('$uuid')";
+		$query = "INSERT INTO photomatcher.PHOTOS(id) Values('$uuid')";
 
 		pg_query($db, $query);
 		pg_close($db);

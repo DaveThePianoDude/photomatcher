@@ -18,7 +18,7 @@
 
 	if($response['status']=='OK'){
 
-		$j = $response['results'][0].address_components[3].long_name;
+		$j = $response['results'];
 
 		echo $j;
 	}

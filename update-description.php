@@ -16,5 +16,7 @@
 
 	$response = file_get_contents($url);
 
-	echo $response[0];
+	$j = json_decode($response);
+
+	echo $j;
 ?>

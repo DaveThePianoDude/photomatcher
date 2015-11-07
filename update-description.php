@@ -14,12 +14,16 @@
 
 	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=".$key;
 
-	$response = file_get_contents($url);
+	$response_json = file_get_contents($url);
+	$response = json_decode($response_json, true);
 
 	echo 'got here';
 
-	$j = $response['results'];
-
-	echo $j;
+	if ($response['status']=='OK')
+	{
+		echo 'got here too';
+		$j = $response['results'];
+		echo $j;
+	}
 
 ?>

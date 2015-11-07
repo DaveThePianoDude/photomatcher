@@ -8,15 +8,18 @@
 		# Establish db connection
 		$db = pg_connect(pg_connection_string());
 
-		$uid = UUID::v4();
-		//$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
+		$uuid = UUID::v4();
+		$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 
-		$query = "INSERT INTO PHOTOS(id) Values('$uid')";
+		$query = "INSERT INTO photomatcher.PHOTOS(id,data) Values('$uuid','$data')";
 
 		pg_query($db, $query);
 		pg_close($db);
 
-		//echo base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
+		echo base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
+
+		echo 'THEN ROW ADDED';
+		echo $uuid;
 	}
 	else
 	{

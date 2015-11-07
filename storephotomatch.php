@@ -26,6 +26,8 @@
 	$line = pg_fetch_row($result);
 	$then_photo = trim($line[0]);
 
+	echo 'Processing description...';
+	
 	// description
 	$query = "SELECT * FROM photomatcher.SETTINGS(value) WHERE name = 'google_api'";
 	$result = pg_query($db, $query);
@@ -37,6 +39,8 @@
 	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.",".$lon."&key=".$key;
 
 	echo $key;
+	
+	echo $url;
 
 	$query = "INSERT INTO photomatcher.PLACES(id,lat,lon,now_photo,then_photo,description) Values('$uuid','$lat','$lon','$now_photo','$then_photo','$description')";
 	pg_query($db, $query);

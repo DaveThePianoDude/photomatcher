@@ -27,7 +27,7 @@
 	$then_photo = trim($line[0]);
 
 	echo 'Processing description...';
-	
+
 	// description
 	$query = "SELECT value FROM photomatcher.SETTINGS WHERE name = 'google_api'";
 	$result = pg_query($db, $query);
@@ -46,10 +46,10 @@
 		$description = $response['results'][0]['address_components'][3]['long_name'];
 		echo $description;
 	}
-	
+
 	echo 'starting to insert. description = '.$description;
 
-	$query = "INSERT INTO photomatcher.PLACES(id,lat,lon,now_photo,then_photo,description) Values('$uuid','$lat','$lon','$now_photo','$then_photo','test')";
+	$query = "INSERT INTO photomatcher.PLACES(id,lat,lon,now_photo,then_photo,description) Values('$uuid','$lat','$lon','$now_photo','$then_photo','$description')";
 	pg_query($db, $query);
 	pg_close($db);
 

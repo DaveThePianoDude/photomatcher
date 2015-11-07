@@ -30,9 +30,9 @@
 	    return $result;
 	}
 
-	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyD2BdERFJ1vsTqKahMIvCw2Lzjmgwsk438";
+	$key = "AIzaSyCJ204tQKkDkj0S-dSohznucBd3C-Hp788";
 
-	echo 'GOT HERE';
+	$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key='$key'";
 
 	$response = file_get_contents($url);
 

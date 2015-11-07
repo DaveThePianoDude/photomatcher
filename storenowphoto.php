@@ -10,8 +10,9 @@
 
 		$uuid = UUID::v4();
 		$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
+		$createdAt = $_GET['createdAt'];
 
-		$query = "INSERT INTO photomatcher.PHOTOS(id,data) Values('$uuid','$data')";
+		$query = "INSERT INTO photomatcher.PHOTOS(id,data,created_at) Values('$uuid','$data','$createdAt')";
 
 		pg_query($db, $query);
 		pg_close($db);

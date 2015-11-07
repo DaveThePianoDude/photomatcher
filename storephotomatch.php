@@ -47,7 +47,7 @@
 		echo $description;
 	}
 	
-	echo 'starting to insert.';
+	echo 'starting to insert. description = '.$description;
 
 	$query = "INSERT INTO photomatcher.PLACES(id,lat,lon,now_photo,then_photo,description) Values('$uuid','$lat','$lon','$now_photo','$then_photo','test')";
 	pg_query($db, $query);

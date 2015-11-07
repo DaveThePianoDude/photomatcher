@@ -18,7 +18,7 @@
 
 		echo base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 
-		echo 'THEN ROW ADDED';
+		echo 'NOW ROW ADDED';
 		echo $uuid;
 	}
 	else

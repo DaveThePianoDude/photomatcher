@@ -11,9 +11,9 @@
 		$uuid = UUID::v4();
 		$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 		$createdAt = $_GET['createdAt'];
-		$size = sizeof($data);
+		$length = sizeof($data);
 
-		$query = "INSERT INTO photomatcher.PHOTOS(id,data,photo_type,created_at,data_size) Values('$uuid','$data','0','$createdAt','$size')";
+		$query = "INSERT INTO photomatcher.PHOTOS(id,data,photo_type,created_at,data_length) Values('$uuid','$data','0','$createdAt','$length')";
 
 		pg_query($db, $query);
 		pg_close($db);

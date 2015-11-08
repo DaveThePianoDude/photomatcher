@@ -11,7 +11,7 @@
 		$uuid = UUID::v4();
 		$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 		$createdAt = $_GET['createdAt'];
-		$length = $_FILES['uploadedfile']['size'];
+		$length = '256';
 
 		$query = "INSERT INTO photomatcher.PHOTOS(id,data,photo_type,created_at,data_length) Values('$uuid','$data','0','$createdAt','$length')";
 

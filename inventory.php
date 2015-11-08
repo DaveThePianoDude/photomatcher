@@ -40,7 +40,7 @@
 
 		echo 'Number of Place Records:'.$count.'.';
 
-		$places_result = pg_query($db, "SELECT * FROM PLACES");
+		$places_result = pg_query($db, "SELECT * FROM photomatcher.PLACES");
 		
 		while ($uid < $nowCount)
 		{
@@ -54,7 +54,7 @@
 
 			echo 'Now+Then '.$description.' ... LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
 
-			$now_result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$now'");
+			$now_result = pg_query($db, "SELECT * FROM photomatcher.NOW_PHOTOS WHERE id = '$now'");
 
 			$now_line = pg_fetch_row($now_result);
 
@@ -71,7 +71,7 @@
 
 			pg_free_result($now_result);
 
-			$then_result = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$then'");
+			$then_result = pg_query($db, "SELECT * FROM photomatcher.THEN_PHOTOS WHERE id = '$then'");
 
 			$then_line = pg_fetch_row($then_result);
 

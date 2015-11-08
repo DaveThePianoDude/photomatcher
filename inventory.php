@@ -30,9 +30,9 @@
 
 		echo "<h3>Photo Inventory:</h3>";
 
-		$uid = '1';
+		$uid = 0;
 
-		$nowCount = pg_query($db, "SELECT COUNT(*) FROM PHOTOMATCHER.now");
+		$nowCount = pg_query($db, "SELECT COUNT(*) FROM photomatcher.PLACES");
 
 		$count_result = pg_fetch_row($nowCount);
 
@@ -40,19 +40,21 @@
 
 		echo 'Number of Place Records:'.$count.'.';
 
+		$places_result = pg_query($db, "SELECT * FROM PLACES");
+		
 		while ($uid < $nowCount)
 		{
-			$places_result = pg_query($db, "SELECT * FROM PLACES WHERE ID = '$uid'");
-
 			$places_line = pg_fetch_row($places_result);
 
-			$natId = trim($places_line[3]);
-			$lat = trim($places_line[0]);
-			$lon = trim($places_line[1]);
+			$lat = trim($places_line[1]);
+			$lon = trim($places_line[2]);
+			$now = trim($places_line[3]);
+			$then = trim($places_line[4]);
+			$description = trim($places_line[5]);
 
-			echo 'NAT ID: '.$natId.' ... LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
+			echo 'Now+Then '.$description.' ... LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
 
-			$now_result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
+			$now_result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$now'");
 
 			$now_line = pg_fetch_row($now_result);
 
@@ -69,7 +71,7 @@
 
 			pg_free_result($now_result);
 
-			$then_result = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
+			$then_result = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$then'");
 
 			$then_line = pg_fetch_row($then_result);
 
@@ -85,10 +87,6 @@
 			echo '<img src="thenimage'.$uid.'.jpg"/>';
 
 			pg_free_result($then_result);
-
-			$description = $_GET['descriptext'];
-
-			pg_query($db, "UPDATE PLACES SET description = '$description' WHERE natid = '$uid'");
 
 			$uid = $uid + 1;
 		}

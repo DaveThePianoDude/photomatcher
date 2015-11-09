@@ -13,7 +13,7 @@
 		$createdAt = $_GET['createdAt'];
 		$length = '256';
 
-		$query = "INSERT INTO photomatcher.PHOTOS(id,data,data_type,photo_type,created_at) Values('$uuid','$data','1','$createdAt')";
+		$query = "INSERT INTO photomatcher.PHOTOS(id,data,photo_type,created_at) Values('$uuid','$data','1','$createdAt')";
 
 		pg_query($db, $query);
 		pg_close($db);

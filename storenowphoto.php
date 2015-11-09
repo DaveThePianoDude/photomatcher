@@ -11,17 +11,15 @@
 		$uuid = UUID::v4();
 		$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 		$createdAt = $_GET['createdAt'];
-		$length = '256';
 
 		$query = "INSERT INTO photomatcher.PHOTOS(id,data,photo_type,created_at) Values('$uuid','$data','1','$createdAt')";
 
 		pg_query($db, $query);
 		pg_close($db);
 
-		echo base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
+		//echo base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 
-		echo 'NOW ROW ADDED';
-		echo $uuid;
+		echo 'NOW ROW ADDED. ID='.$uuid;
 	}
 	else
 	{

@@ -38,7 +38,7 @@
 
 		$count = $count_result[0];
 
-		echo 'Number of Place Records:'.$count.'.';
+		echo 'Number of Place Records:'.$count.'.<br>';
 
 		$places_result = pg_query($db, "SELECT * FROM photomatcher.PLACES");
 		

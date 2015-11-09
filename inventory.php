@@ -52,10 +52,10 @@
 			$then = trim($places_line[4]);
 			$description = trim($places_line[5]);
 
-			echo nl2br 'Now+Then '.$description.' ... LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>\n';
+			echo 'Now+Then '.$description.' ... LATITUDE: '.$lat.', LONGITUDE: '.$lon.'<br>';
 
-			echo 'NOW='.$now.'\n';
-			echo 'THEN='.$then.'\n';
+			echo 'NOW='.$now;
+			echo 'THEN='.$then;
 			
 			$now_result = pg_query($db, "SELECT * FROM photomatcher.PHOTOS WHERE id = '$now'");
 

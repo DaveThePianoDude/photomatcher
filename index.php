@@ -194,11 +194,6 @@
 
 			exit;
 
-		} else
-		{
-			echo "Database connection succeeded.";
-
-			echo "Now 'n' Then v. 0.127";
 		}
 
 		echo "<script type=\x22text/javascript\x22>";

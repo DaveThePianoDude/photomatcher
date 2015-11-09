@@ -42,7 +42,7 @@
 
 		$places_result = pg_query($db, "SELECT * FROM photomatcher.PLACES");
 		
-		while ($uid < $nowCount)
+		while ($uid < $count)
 		{
 			$places_line = pg_fetch_row($places_result);
 

@@ -2,7 +2,7 @@
 
 	if (isset($_FILES['uploadedfile']))
 	{
-		$data = file_get_contents($_FILES['uploadedfile']['tmp_name']);
+		$data = base64_encode(file_get_contents($_FILES['uploadedfile']['tmp_name']));
 		
 		file_put_contents(
 			"testimage.jpg", 

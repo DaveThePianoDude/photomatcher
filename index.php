@@ -210,6 +210,27 @@
 
 		$uid = 0;
 
+		$nowCount = pg_query($db, "SELECT COUNT(*) FROM photomatcher.PLACES");
+
+		$count_result = pg_fetch_row($nowCount);
+
+		$count = $count_result[0];
+		
+		$places_result = pg_query($db, "SELECT * FROM photomatcher.PLACES");
+		
+		while ($uid < $count)
+		{
+			$places_line = pg_fetch_row($places_result);
+
+			$lat = trim($places_line[1]);
+			$lon = trim($places_line[2]);
+			$now = trim($places_line[3]);
+			$then = trim($places_line[4]);
+			$description = trim($places_line[5]);
+
+			$uid = $uid + 1;
+		}
+
 		echo "map.on('popupopen', prepslides);";
 
 		echo "map.setView(london, 13).addLayer(osm);";

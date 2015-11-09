@@ -210,34 +210,6 @@
 
 		$uid = 0;
 
-		$nowCount = pg_query($db, "SELECT COUNT(*) FROM photomatcher.PLACES");
-
-		$count_result = pg_fetch_row($nowCount);
-
-		$count = $count_result[0];
-		
-		$places_result = pg_query($db, "SELECT * FROM photomatcher.PLACES");
-		
-		while ($uid < $count)
-		{
-			$places_line = pg_fetch_row($places_result);
-
-			$lat = trim($places_line[1]);
-			$lon = trim($places_line[2]);
-			$now = trim($places_line[3]);
-			$then = trim($places_line[4]);
-			$description = trim($places_line[5]);
-
-			if (is_numeric($lat) && is_numeric($lon))
-			{
-				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon, natId:".$uid." }).addTo(map);";
-
-				echo "marker.bindPopup(\x22<h3>".$uid. Now+Then .$description."</h3><div ID='bigdiv' style='width:320px;height:240px' ><div id='spinner".$uid."' class='spinner'><img id='img-spinner".$uid."' src='assets/images/spinner.gif' alt='Loading'/></div><div id='natpair".$uid."' style='display:none' ><ul class='images'><li><img ID='thenImage12' style='opacity:0' src='thenimage".$uid.".jpg' height='240px' width='300px'></img></li><li><img ID='nowImage12' style='opacity:1' src='nowimage".$uid.".jpg' height='240px' width='300px'></img></li></ul></div></div><div id='slider-bg' title='Slider'><div id='slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
-			}
-
-			$uid = $uid + 1;
-		}
-
 		echo "map.on('popupopen', prepslides);";
 
 		echo "map.setView(london, 13).addLayer(osm);";

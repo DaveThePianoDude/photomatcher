@@ -39,7 +39,7 @@
 				baseUrl = baseUrl.concat('&THEN=');
 				baseUrl = baseUrl.concat(then);
 				console.log('baseUrl='+baseUrl);
-				
+
 				$.ajax({
 					 async: false,
 					 type: 'GET',
@@ -91,7 +91,7 @@
 
 						pic.style.opacity = actualValue / bottomConstraint;
 
-						pic = Dom.get("nowImageTarget");
+						pic = Dom.get("nowImage12");
 
 						pic.style.opacity = 1 - actualValue / bottomConstraint;
 
@@ -222,9 +222,9 @@
 		$count_result = pg_fetch_row($nowCount);
 
 		$count = $count_result[0];
-		
+
 		$places_result = pg_query($db, "SELECT * FROM photomatcher.PLACES");
-		
+
 		while ($uid < $count)
 		{
 			$places_line = pg_fetch_row($places_result);
@@ -239,7 +239,7 @@
 			{
 				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon, natId:".$uid.", now:'".$now."', then:'".$then."' }).addTo(map);";
 
-				echo "marker.bindPopup(\x22<h3>".$description."</h3><div ID='bigdiv' style='width:320px;height:240px' ><div id='spinner".$uid."' class='spinner'><img id='img-spinner".$uid."' src='assets/images/spinner.gif' alt='Loading'/></div><div id='natpair".$uid."' style='display:none' ><ul class='images'><li><img ID='thenImage".$uid."' style='opacity:0' src='".$then.".jpg' height='240px' width='300px'></img></li><li><img ID='nowImageTarget' style='opacity:1' src='".$now.".jpg' height='240px' width='300px'></img></li></ul></div></div><div id='slider-bg' title='Slider'><div id='slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
+				echo "marker.bindPopup(\x22<h3>".$description."</h3><div ID='bigdiv' style='width:320px;height:240px' ><div id='spinner".$uid."' class='spinner'><img id='img-spinner".$uid."' src='assets/images/spinner.gif' alt='Loading'/></div><div id='natpair".$uid."' style='display:none' ><ul class='images'><li><img ID='thenImage".$uid."' style='opacity:0' src='".$then.".jpg' height='240px' width='300px'></img></li><li><img ID='nowImage12' style='opacity:1' src='".$now.".jpg' height='240px' width='300px'></img></li></ul></div></div><div id='slider-bg' title='Slider'><div id='slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 			}
 
 			$uid = $uid + 1;
@@ -301,7 +301,7 @@
 
 						pic.style.opacity = actualValue / bottomConstraint;
 
-						pic = Dom.get("nowImageTarget");
+						pic = Dom.get("nowImage12");
 
 						pic.style.opacity = 1 - actualValue / bottomConstraint;
 

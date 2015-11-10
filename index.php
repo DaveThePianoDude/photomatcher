@@ -29,14 +29,21 @@
 		function prepslides(e) {
 
 				var natId = e.popup._source.options.natId;
-				var baseUrl = "download-nat-pair.php?ID=";
+				var baseUrl = "download-nat-pair.php?NOW=";
 				var spinnerId = "#spinner" + natId;
 				var natpairId = "#natpair" + natId;
+				var now = e.popup._source.options.now;
+				var then = e.popup._source.options.then;
 
+				baseUrl = baseUrl.concat(now);
+				baseUrl = baseUrl.concat('&THEN=');
+				baseUrl = baseUrl.concat(then);
+				console.log('baseUrl='+baseUrl);
+				
 				$.ajax({
 					 async: false,
 					 type: 'GET',
-					 url: baseUrl.concat(natId),
+					 url: baseUrl,
 					 success: function(data) {
 						  //callback
 						  console.log('Done writing to server now and then image pair#'+natId);
@@ -230,7 +237,7 @@
 
 			if (is_numeric($lat) && is_numeric($lon))
 			{
-				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon, natId:".$uid." }).addTo(map);";
+				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon, natId:".$uid.", now:".$now.", then:".$then." }).addTo(map);";
 
 				echo "marker.bindPopup(\x22<h3>".$description."</h3><div ID='bigdiv' style='width:320px;height:240px' ><div id='spinner".$uid."' class='spinner'><img id='img-spinner".$uid."' src='assets/images/spinner.gif' alt='Loading'/></div><div id='natpair".$uid."' style='display:none' ><ul class='images'><li><img ID='thenImage".$uid."' style='opacity:0' src='thenimage".$uid.".jpg' height='240px' width='300px'></img></li><li><img ID='nowImage".$uid."' style='opacity:1' src='nowimage".$uid.".jpg' height='240px' width='300px'></img></li></ul></div></div><div id='slider-bg' title='Slider'><div id='slider-thumb'><img src='http://yui.yahooapis.com/2.9.0/build/slider/assets/thumb-n.gif'></div></div>\x22).openPopup();";
 			}

@@ -31,38 +31,39 @@
 		
 		echo "<h3>Now and Then Pair:</h3>";
 		
-		$uid = $_GET['ID'];
+		$now = $_GET['NOW'];
 		
-		$now_result = pg_query($db, "SELECT * FROM NOW_PHOTOS WHERE id = '$uid'");
+		$now_result = pg_query($db, "SELECT * FROM photomatcher.PHOTOS WHERE id = '$now'");
 		$now_line = pg_fetch_row($now_result);
 		$img_str = trim($now_line[1]);
 		
 		file_put_contents(
-			"nowimage$uid.jpg", 
+			"$now.jpg", 
 			base64_decode(
 				str_replace("data:image/jpg;base64", "", $img_str)
 			)
 		);
 		
-		echo '<img src="nowimage'.$uid.'.jpg"/>';
+		echo '<img src="'.$now.'.jpg"/>';
 		
-		$then_result = pg_query($db, "SELECT * FROM THEN_PHOTOS WHERE id = '$uid'");
+		$then = $_GET['THEN'];
+		
+		$then_result = pg_query($db, "SELECT * FROM photomatcher.PHOTOS WHERE id = '$then'");
 		$then_line = pg_fetch_row($then_result);
 		$img_str = trim($then_line[1]);
 		
 		file_put_contents(
-			"thenimage$uid.jpg", 
+			"$then.jpg", 
 			base64_decode(
 				str_replace("data:image/jpg;base64", "", $img_str)
 			)
 		);
 		
-		echo '<img src="thenimage'.$uid.'.jpg"/>';
+		echo '<img src="'.$then.'.jpg"/>';
 		
 		pg_free_result($now_result);
 		pg_free_result($then_result);		
 		pg_close($db);
-	
 	?>
 </body>
 </html>

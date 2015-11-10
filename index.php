@@ -237,7 +237,7 @@
 
 			if (is_numeric($lat) && is_numeric($lon))
 			{
-				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon, natId:".$uid." }).addTo(map);";
+				echo "var marker = L.marker([$lat, $lon], {icon: timeIcon, natId:".$uid.", now:".$now.", then:".$then." }).addTo(map);";
 
 				echo "marker.bindPopup(\x22<h3>".$description."</h3>\x22).openPopup();";
 			}

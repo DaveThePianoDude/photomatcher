@@ -245,8 +245,6 @@
 			$uid = $uid + 1;
 		}
 
-		echo "map.on('popupopen', prepslides);";
-
 		echo "map.setView(london, 13).addLayer(osm);";
 
 		echo "</script>";
